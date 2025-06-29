@@ -124,7 +124,7 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <button type="submit" class="btn">Login</button>
-                <a href="#" id="show-forgot-password" class="form-link">Lupa Password?</a>
+                <a href="{{ route('adminn') }}" id="show-forgot-password" class="form-link">Lupa Password?</a>
             </form>
         </div>
 

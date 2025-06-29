@@ -15,5 +15,5 @@ Route::get('/login', function () {
 // admin input berita 
 Route::get('/adminn', function () {
     return view('admininput');
-})->name('admin'); // <-- Ini yang penting untuk link login Anda
+})->name('adminn'); // <-- Ini yang penting untuk link login Anda
 
