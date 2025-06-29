@@ -100,58 +100,73 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
 
-    <div class="container">
-        <h1>Input Berita Baru</h1>
+    <div class="container mx-auto max-w-4xl py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Input Berita Baru</h1>
 
-        {{-- Ganti 'admin.berita.store' dengan nama rute Anda nanti --}}
-        <form action="#" method="Post" enctype="multipart/form-data">
+        {{-- Menampilkan pesan sukses jika ada --}}
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <strong class="font-bold">Sukses!</strong>
+                <span class="block sm:inline">{{ session('success') }}</span>
+            </div>
+        @endif
+
+        {{-- Menampilkan error validasi jika ada --}}
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
             @csrf
 
-            <div class="form-group">
-                <label for="featured_image">Gambar Utama (Featured Image)</label>
-                <input type="file" id="featured_image" name="featured_image" class="form-control-file" accept="image/*" required>
+            <div class="mb-4">
+                <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Gambar Utama (Opsional)</label>
+                <input type="file" name="image" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
 
-            <hr>
-
-            <div class="tab-nav">
-                <button type="button" class="tab-link active" data-tab="indonesia">Bahasa Indonesia</button>
-                <button type="button" class="tab-link" data-tab="english">English</button>
-            </div>
-
-            <div class="tab-content">
-                <div id="indonesia" class="tab-pane active">
-                    <div class="form-group">
-                        <label for="title_id">Judul Berita (Indonesia)</label>
-                        <input type="text" id="title_id" name="title_id" class="form-control" placeholder="Masukkan judul dalam Bahasa Indonesia" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="content_id">Isi Berita (Indonesia)</label>
-                        <textarea id="content_id" name="content_id" class="form-control" placeholder="Tuliskan isi berita lengkap di sini..." required></textarea>
-                    </div>
+            <div class="mb-6 p-4 border rounded">
+                <h3 class="text-xl font-semibold mb-2">Bahasa Indonesia</h3>
+                <div class="mb-4">
+                    <label for="title_id" class="block text-gray-700 text-sm font-bold mb-2">Judul (ID)</label>
+                    <input type="text" name="title_id" id="title_id" value="{{ old('title_id') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
-
-                <div id="english" class="tab-pane">
-                    <div class="form-group">
-                        <label for="title_en">News Title (English)</label>
-                        <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Enter title in English" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="content_en">News Content (English)</label>
-                        <textarea id="content_en" name="content_en" class="form-control" placeholder="Write the full news content here..." required></textarea>
-                    </div>
+                <div>
+                    <label for="content_id" class="block text-gray-700 text-sm font-bold mb-2">Konten (ID)</label>
+                    <textarea name="content_id" id="content_id" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>{{ old('content_id') }}</textarea>
                 </div>
             </div>
 
-            <div class="action-buttons">
-                <button type="submit" name="status" value="draft" class="btn btn-secondary">Simpan sebagai Draft</button>
-                <button type="submit" name="status" value="published" class="btn btn-primary">Luncurkan Berita</button>
+            <div class="mb-6 p-4 border rounded">
+                <h3 class="text-xl font-semibold mb-2">English</h3>
+                <div class="mb-4">
+                    <label for="title_en" class="block text-gray-700 text-sm font-bold mb-2">Title (EN)</label>
+                    <input type="text" name="title_en" id="title_en" value="{{ old('title_en') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div>
+                    <label for="content_en" class="block text-gray-700 text-sm font-bold mb-2">Content (EN)</label>
+                    <textarea name="content_en" id="content_en" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>{{ old('content_en') }}</textarea>
+                </div>
             </div>
 
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Simpan Berita
+                </button>
+                <a href="{{ route('dashboard') }}" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                    Kembali ke Dashboard
+                </a>
+            </div>
         </form>
     </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

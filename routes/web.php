@@ -13,10 +13,15 @@ Route::get('/', function () {
 })->name('dashboard');
 
 // Grup route untuk autentikasi
-Route::controller(LoginController::class)->group(function () {
-    Route::get('/login', 'showLoginForm')->name('login');
-    Route::post('/login', 'login');
-    Route::post('/logout', 'logout')->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::get('/adminn', function () {
+        return view('admininput');
+    })->name('admin.input');
+
+    // Route untuk menyimpan berita
+    Route::post('/adminn/store', [NewsController::class, 'store'])->name('admin.news.store');
+
+    // Nanti jika ada halaman admin lain, letakkan di sini.
 });
 
 // Route yang dilindungi (hanya bisa diakses setelah login)
