@@ -106,7 +106,7 @@
         <h1>Input Berita Baru</h1>
 
         {{-- Ganti 'admin.berita.store' dengan nama rute Anda nanti --}}
-        <form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="#" method="Post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
