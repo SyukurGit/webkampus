@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sederhana</title>
+
+    <style>
+        /* Pengaturan dasar untuk seluruh halaman */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* --- Styling untuk Navbar --- */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex; /* Menggunakan Flexbox untuk perataan */
+            justify-content: space-between; /* Mendorong item ke ujung kiri dan kanan */
+            align-items: center; /* Membuat item sejajar secara vertikal */
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Styling untuk judul/logo di navbar */
+        .navbar-brand {
+            font-size: 1.5em; /* Ukuran font lebih besar */
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none; /* Menghapus garis bawah pada link */
+        }
+
+        /* Kontainer untuk tombol di sebelah kanan */
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Memberi jarak antar elemen (switch bahasa dan tombol login) */
+        }
+
+        /* Styling untuk switch bahasa */
+        .lang-switch a {
+            color: #555;
+            text-decoration: none;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Memberi tanda pada bahasa yang aktif */
+        .lang-switch a.active {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .lang-switch a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Styling untuk tombol login */
+        .login-btn {
+            background-color: #3498db; /* Warna biru */
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efek saat kursor mouse di atas tombol login */
+        .login-btn:hover {
+            background-color: #2980b9; /* Warna biru lebih gelap */
+        }
+
+        /* --- Styling untuk Konten Utama --- */
+        .main-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Dashboard</a>
+        <div class="navbar-actions">
+            <div class="lang-switch">
+                <a href="#" class="active">ID</a>
+                <a href="#">EN</a>
+            </div>
+            <a href="{{ route('login') }}" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1>Selamat Datang di Dashboard Anda</h1>
+        <p>Ini adalah area konten utama. Anda bisa meletakkan grafik, tabel, atau informasi lainnya di sini.</p>
+    </main>
+
+</body>
+</html>
