@@ -109,38 +109,45 @@
         }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen">
 
-    <div class="login-container">
-        <div id="login-form">
-            <form action="#" method="post">
-                <h2>Admin Login</h2>
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <a href="{{ route('adminn') }}" id="show-forgot-password" class="form-link">Lupa Password?</a>
-            </form>
-        </div>
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800">Admin Login</h2>
 
-        <div id="forgot-password-form">
-            <form action="#" method="post">
-                <h2>Lupa Password</h2>
-                <p>Masukkan email Anda untuk menerima link reset password.</p>
-                <div class="input-group">
-                    <label for="forgot-email">Email</label>
-                    <input type="email" id="forgot-email" name="forgot-email" required>
-                </div>
-                <button type="submit" class="btn">Kirim Link Reset</button>
-                <a href="#" id="show-login" class="form-link">Kembali ke Login</a>
-            </form>
-        </div>
+        {{-- Formulir Login --}}
+        <form method="POST" action="{{ route('login') }}" class="space-y-6">
+            {{-- Token Keamanan CSRF --}}
+            @csrf
+
+            {{-- Input Email --}}
+            <div>
+                <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required
+                       class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                       value="{{ old('email') }}">
+                
+                {{-- Menampilkan pesan error validasi umum --}}
+                @error('email')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- Input Password --}}
+            <div>
+                <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required
+                       class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+
+            <div>
+                <button type="submit"
+                        class="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Sign In
+                </button>
+            </div>
+        </form>
     </div>
+
 
     <script>
         // Ambil elemen dari DOM
