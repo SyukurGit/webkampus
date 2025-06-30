@@ -4,59 +4,78 @@
 @section('header', 'Manajemen Berita')
 
 @section('content')
-<div class="bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold mb-4">Daftar Semua Berita</h2>
+<div class="card shadow-sm">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 text-dark">Daftar Semua Berita</h5>
+        <a href="{{ route('admin.input') }}" class="btn btn-primary btn-sm">
+            <i class="bi bi-plus-circle me-1"></i> Tambah Berita
+        </a>
+    </div>
+    <div class="card-body">
+        {{-- Menampilkan pesan sukses --}}
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
-    {{-- Menampilkan pesan sukses setelah menghapus/menambah berita --}}
-    @if(session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-            <strong class="font-bold">Sukses!</strong>
-            <span class="block sm:inline">{{ session('success') }}</span>
-        </div>
-    @endif
-
-    <div class="overflow-x-auto">
-        <table class="min-w-full bg-white">
-            <thead class="bg-gray-800 text-white">
-                <tr>
-                    <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Gambar</th>
-                    <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Judul (ID)</th>
-                    <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Judul (EN)</th>
-                    <th class="py-3 px-4 uppercase font-semibold text-sm text-center">Tanggal Dibuat</th>
-                    <th class="py-3 px-4 uppercase font-semibold text-sm text-center">Aksi</th>
-                </tr>
-            </thead>
-            <tbody class="text-gray-700">
-                @forelse ($newsItems as $news)
-                    <tr class="border-b">
-                        <td class="py-3 px-4">
-                            @if($news->image)
-                                <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="w-24 h-16 object-cover rounded">
-                            @else
-                                <span class="text-gray-400">No Image</span>
-                            @endif
-                        </td>
-                        <td class="py-3 px-4">{{ $news->title_id }}</td>
-                        <td class="py-3 px-4">{{ $news->title_en }}</td>
-                        <td class="py-3 px-4 text-center">{{ $news->created_at->format('d M Y') }}</td>
-                        <td class="py-3 px-4 text-center">
-                            <div class="flex items-center justify-center gap-2">
-                                <a href="#" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded text-xs">Edit</a>
-                                
-                                <form action="{{ route('admin.news.destroy', $news) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
-                                    @csrf
-                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-xs">Hapus</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                @empty
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle">
+                <thead class="table-dark">
                     <tr>
-                        <td colspan="5" class="text-center py-4">Tidak ada berita yang ditemukan.</td>
+                        <th scope="col" style="width: 10%;">Gambar</th>
+                        <th scope="col">Judul</th>
+                        <th scope="col" class="text-center" style="width: 15%;">Tanggal Dibuat</th>
+                        <th scope="col" class="text-center" style="width: 15%;">Aksi</th>
                     </tr>
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @forelse ($newsItems as $news)
+                        <tr>
+                            <td>
+                                @if($news->image)
+                                    <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="img-fluid rounded" style="max-height: 75px; width: 100%; object-fit: cover;">
+                                @else
+                                    <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 75px;">
+                                        <small class="text-muted">No Image</small>
+                                    </div>
+                                @endif
+                            </td>
+                            <td>
+                                <div class="fw-bold">ID: {{ Str::limit($news->title_id, 50) }}</div>
+                                <small class="text-muted">EN: {{ Str::limit($news->title_en, 50) }}</small>
+                            </td>
+                            <td class="text-center">
+                                {{ $news->created_at->format('d M Y') }}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    {{-- Tombol Edit (belum berfungsi) --}}
+                                    <a href="#" class="btn btn-warning btn-sm" title="Edit">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    
+                                    {{-- Tombol Hapus (sudah berfungsi) --}}
+                                    <form action="{{ route('admin.news.destroy', $news) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm" title="Hapus">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center py-4">
+                                Tidak ada berita yang ditemukan. Silakan tambah berita baru.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection
