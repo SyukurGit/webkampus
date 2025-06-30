@@ -3,79 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('db.title') }}</title>
-    @vite('resources/js/app.js')
+    <title>{{ __('db.title') }} - {{ config('app.name') }}</title>
+    {{-- Memuat CSS Bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light text-dark">
+<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    {{-- Navbar Publik --}}
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="{{ route('dashboard') }}">
-                {{ __('db.navbar_brand') }}
-            </a>
-            <div class="d-flex gap-2">
-                <a href="{{ route('lang.switch', 'id') }}" class="btn btn-sm {{ app()->getLocale() == 'id' ? 'btn-primary text-white fw-semibold' : 'btn-outline-secondary' }}">
-                    ID
-                </a>
-                <a href="{{ route('lang.switch', 'en') }}" class="btn btn-sm {{ app()->getLocale() == 'en' ? 'btn-primary text-white fw-semibold' : 'btn-outline-secondary' }}">
-                    EN
-                </a>
+            <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">KAMPUS SITE</a>
+            <div class="ms-auto d-flex align-items-center">
+                <div class="btn-group btn-group-sm">
+                    <a href="{{ route('lang.switch', 'id') }}" class="btn {{ app()->getLocale() == 'id' ? 'btn-dark' : 'btn-outline-dark' }}">ID</a>
+                    <a href="{{ route('lang.switch', 'en') }}" class="btn {{ app()->getLocale() == 'en' ? 'btn-dark' : 'btn-outline-dark' }}">EN</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main class="py-5">
-        <div class="container">
-            <h1 class="display-5 fw-bold text-center mb-5">
-                {{ __('db.welcome_heading') }}
-            </h1>
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold">{{ __('db.welcome_heading') }}</h1>
+            <p class="lead text-muted">{{ __('db.welcome_p') }}</p>
+        </div>
 
-            <div class="row g-4">
-                @forelse ($newsItems as $news)
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            @if ($news->image)
-                                <img src="{{ asset('storage/' . $news->image) }}" class="card-img-top object-fit-cover" style="height: 200px;" alt="News Image">
-                            @else
-                                <div class="d-flex align-items-center justify-content-center bg-secondary-subtle" style="height: 200px;">
-                                    <svg class="text-secondary" width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 00-2.828 0L6 14m6-6l.01.01"></path>
-                                    </svg>
-                                </div>
-                            @endif
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">
-                                    @if (app()->getLocale() == 'id')
-                                        {{ $news->title_id }}
-                                    @else
-                                        {{ $news->title_en }}
-                                    @endif
-                                </h5>
-                                <p class="card-text flex-grow-1">
-                                    @if (app()->getLocale() == 'id')
-                                        {{ Str::limit($news->content_id, 150) }}
-                                    @else
-                                        {{ Str::limit($news->content_en, 150) }}
-                                    @endif
-                                </p>
-                                <small class="text-muted mt-2">Dibuat pada: {{ $news->created_at->format('d M Y') }}</small>
+        <div class="row g-4">
+            {{-- Loop untuk setiap item berita --}}
+            @forelse ($newsItems as $news)
+                <div class="col-lg-4 col-md-6">
+                    {{-- INI BAGIAN YANG DIPERBARUI --}}
+                    <a href="{{ route('news.show', $news) }}" class="card text-decoration-none text-dark h-100 shadow-sm border-0 lift">
+                        @if ($news->image)
+                            <img src="{{ asset('storage/' . $news->image) }}" class="card-img-top" alt="News Image" style="height: 200px; object-fit: cover;">
+                        @else
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <small class="text-white-50">No Image</small>
                             </div>
+                        @endif
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">
+                                @if (app()->getLocale() == 'id')
+                                    {{ $news->title_id }}
+                                @else
+                                    {{ $news->title_en }}
+                                @endif
+                            </h5>
+                            <p class="card-text text-muted small flex-grow-1">
+                                @if (app()->getLocale() == 'id')
+                                    {{ Str::limit($news->content_id, 100) }}
+                                @else
+                                    {{ Str::limit($news->content_en, 100) }}
+                                @endif
+                            </p>
+                            <small class="text-muted mt-auto">{{ $news->created_at->format('d M Y') }}</small>
                         </div>
+                    </a>
+                </div>
+            @empty
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <p class="text-muted fs-5">Belum ada berita yang dipublikasikan.</p>
                     </div>
-                @empty
-                    <div class="col-12">
-                        <div class="text-center border border-2 border-dashed p-5 rounded bg-white">
-                            <svg class="mb-3 text-muted" width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2z" />
-                            </svg>
-                            <h3 class="fw-semibold">Belum Ada Berita</h3>
-                            <p class="text-muted">Saat ini belum ada berita yang dipublikasikan.</p>
-                        </div>
-                    </div>
-                @endforelse
-            </div>
+                </div>
+            @endforelse
         </div>
     </main>
 
+    <footer class="text-center py-4 mt-auto bg-white border-top">
+        <p class="mb-0 text-muted">&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

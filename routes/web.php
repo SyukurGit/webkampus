@@ -10,12 +10,18 @@ use App\Http\Controllers\DashboardController;
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+// INI ROUTE YANG HILANG DAN PERLU DITAMBAHKAN KEMBALI
+// URL: /berita/{id} -> Nama Route: news.show
+Route::get('/berita/{news}', [DashboardController::class, 'show'])->name('news.show');
+
+
 // --- ROUTE AUTENTIKASI ---
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('login');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout')->name('logout');
 });
+
 
 // --- ROUTE ADMIN YANG DILINDUNGI ---
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
@@ -30,9 +36,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // URL: /admin/news/store -> Nama Route: admin.news.store
     Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
 
-    // INI YANG SAYA TAMBAHKAN
     // URL: /admin/news/{id}/delete -> Nama Route: admin.news.destroy
     Route::post('/news/{news}/delete', [NewsController::class, 'destroy'])->name('news.destroy');
-
-    Route::get('/berita/{news}', [DashboardController::class, 'show'])->name('news.show');
 });
