@@ -29,4 +29,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
     // URL: /admin/news/store -> Nama Route: admin.news.store
     Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
+
+    // INI YANG SAYA TAMBAHKAN
+    // URL: /admin/news/{id}/delete -> Nama Route: admin.news.destroy
+    Route::post('/news/{news}/delete', [NewsController::class, 'destroy'])->name('news.destroy');
 });

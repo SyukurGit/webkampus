@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage; // Pastikan baris ini ada
 
 class NewsController extends Controller
 {
@@ -39,5 +40,23 @@ class NewsController extends Controller
 
         // Redirect ke halaman daftar berita setelah sukses
         return redirect()->route('admin.news.index')->with('success', 'Berita baru berhasil disimpan!');
+    }
+
+    /**
+     * INI YANG SAYA TAMBAHKAN
+     * Remove the specified resource from storage.
+     */
+    public function destroy(News $news): RedirectResponse
+    {
+        // 1. Hapus file gambar dari storage jika ada
+        if ($news->image) {
+            Storage::disk('public')->delete($news->image);
+        }
+        
+        // 2. Hapus data berita dari database
+        $news->delete();
+
+        // 3. Kembali ke halaman daftar berita dengan pesan sukses
+        return redirect()->route('admin.news.index')->with('success', 'Berita berhasil dihapus!');
     }
 }
