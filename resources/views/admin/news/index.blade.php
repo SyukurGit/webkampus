@@ -27,39 +27,35 @@
                 </tr>
             </thead>
             <tbody class="text-gray-700">
-    @forelse ($newsItems as $news)
-        <tr class="border-b">
-            <td class="py-3 px-4">
-                @if($news->image)
-                    <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="w-24 h-16 object-cover rounded">
-                @else
-                    <span class="text-gray-400">No Image</span>
-                @endif
-            </td>
-            <td class="py-3 px-4">{{ $news->title_id }}</td>
-            <td class="py-3 px-4">{{ $news->title_en }}</td>
-            <td class="py-3 px-4 text-center">{{ $news->created_at->format('d M Y') }}</td>
-            
-            {{-- PASTIKAN BAGIAN INI SUDAH BENAR --}}
-            <td class="py-3 px-4 text-center">
-                <div class="flex items-center justify-center gap-2">
-                    <a href="#" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded text-xs">Edit</a>
-                    
-                    {{-- FORMULIR INI YANG MEMBUAT TOMBOL HAPUS --}}
-                    <form action="{{ route('admin.news.destroy', $news) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
-                        @csrf
-                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-xs">Hapus</button>
-                    </form>
-                </div>
-            </td>
-
-        </tr>
-    @empty
-        <tr>
-            <td colspan="5" class="text-center py-4">Tidak ada berita yang ditemukan.</td>
-        </tr>
-    @endforelse
-</tbody>
+                @forelse ($newsItems as $news)
+                    <tr class="border-b">
+                        <td class="py-3 px-4">
+                            @if($news->image)
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="w-24 h-16 object-cover rounded">
+                            @else
+                                <span class="text-gray-400">No Image</span>
+                            @endif
+                        </td>
+                        <td class="py-3 px-4">{{ $news->title_id }}</td>
+                        <td class="py-3 px-4">{{ $news->title_en }}</td>
+                        <td class="py-3 px-4 text-center">{{ $news->created_at->format('d M Y') }}</td>
+                        <td class="py-3 px-4 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <a href="#" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded text-xs">Edit</a>
+                                
+                                <form action="{{ route('admin.news.destroy', $news) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
+                                    @csrf
+                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-xs">Hapus</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center py-4">Tidak ada berita yang ditemukan.</td>
+                    </tr>
+                @endforelse
+            </tbody>
         </table>
     </div>
 </div>
