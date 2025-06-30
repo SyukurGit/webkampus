@@ -10,14 +10,11 @@ class NewsController extends Controller
 {
     /**
      * Menampilkan daftar semua berita.
-     * (Saya pindahkan ke atas agar sesuai konvensi)
      */
     public function index()
     {
-        // Ambil semua data berita, urutkan dari yang terbaru
         $allNews = News::latest()->get();
-
-        // Kirim data ke view 'admin.news.index'
+        // Pastikan view ini ada: resources/views/admin/news/index.blade.php
         return view('admin.news.index', ['newsItems' => $allNews]);
     }
 
@@ -26,7 +23,6 @@ class NewsController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // 1. Validasi semua input dari formulir
         $validatedData = $request->validate([
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title_id' => 'required|string|max:255',
@@ -35,16 +31,13 @@ class NewsController extends Controller
             'content_en' => 'required|string',
         ]);
 
-        // 2. Proses upload gambar jika ada
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $validatedData['image'] = $imagePath;
+            $validatedData['image'] = $request->file('image')->store('images', 'public');
         }
 
-        // 3. Simpan data berita ke database
         News::create($validatedData);
 
-        // 4. Kembali ke halaman DAFTAR BERITA dengan pesan sukses (SUDAH DIPERBAIKI)
+        // Redirect ke halaman daftar berita setelah sukses
         return redirect()->route('admin.news.index')->with('success', 'Berita baru berhasil disimpan!');
     }
 }

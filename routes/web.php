@@ -4,41 +4,29 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\DashboardController; // DITAMBAHKAN
+use App\Http\Controllers\DashboardController;
 
 // --- ROUTE PUBLIK ---
-// Siapa saja bisa mengakses ini
-
-// Route untuk mengganti bahasa
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
-
-// Route Dasbor (Halaman utama publik) yang sekarang mengambil data
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); // DIPERBAIKI
-
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // --- ROUTE AUTENTIKASI ---
-// Untuk proses masuk dan keluar
-
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('login');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout')->name('logout');
 });
 
-
 // --- ROUTE ADMIN YANG DILINDUNGI ---
-// Hanya bisa diakses setelah login
-
-Route::middleware('auth')->group(function () {
-    // Halaman utama setelah login (input berita)
-    Route::get('/adminn', function () {
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    // URL: /admin/input -> Nama Route: admin.input
+    Route::get('/input', function () {
         return view('admininput');
-    })->name('admin.input');
+    })->name('input');
 
-    // Route untuk memproses penyimpanan berita
-    Route::post('/adminn/store', [NewsController::class, 'store'])->name('admin.news.store');
+    // URL: /admin/news -> Nama Route: admin.news.index
+    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 
-    
-
-    // Nanti jika ada halaman admin lain, letakkan di sini.
+    // URL: /admin/news/store -> Nama Route: admin.news.store
+    Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
 });
