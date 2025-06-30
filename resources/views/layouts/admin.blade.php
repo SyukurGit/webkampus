@@ -22,15 +22,15 @@
                 <a href="{{ route('dashboard') }}" target="_blank">Kampus Web</a>
             </div>
             <nav class="mt-4">
-                {{-- Cek route mana yang aktif untuk memberi highlight --}}
-                <a href="#" class="sidebar-link block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white @if(request()->routeIs('admin.news.index')) active @endif">
-                    Daftar Berita
-                </a>
-                <a href="{{ route('admin.input') }}" class="sidebar-link block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white @if(request()->routeIs('admin.input')) active @endif">
-                    Tambah Berita Baru
-                </a>
-                {{-- Link admin lainnya bisa ditambahkan di sini --}}
-            </nav>
+    {{-- Link ke Daftar Berita --}}
+    <a href="{{ route('admin.news.index') }}" class="sidebar-link ... @if(request()->routeIs('admin.news.index')) active @endif">
+        Daftar Berita
+    </a>
+    {{-- Link ke Tambah Berita --}}
+    <a href="{{ route('admin.input') }}" class="sidebar-link ... @if(request()->routeIs('admin.input')) active @endif">
+        Tambah Berita Baru
+    </a>
+</nav>
         </aside>
 
         <div class="flex-1 flex flex-col">

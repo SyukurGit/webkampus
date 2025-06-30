@@ -38,5 +38,7 @@ Route::middleware('auth')->group(function () {
     // Route untuk memproses penyimpanan berita
     Route::post('/adminn/store', [NewsController::class, 'store'])->name('admin.news.store');
 
+    
+
     // Nanti jika ada halaman admin lain, letakkan di sini.
 });
