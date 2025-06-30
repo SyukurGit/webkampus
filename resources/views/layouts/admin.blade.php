@@ -63,16 +63,28 @@
 
     <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
-            <div class="container-fluid">
-                <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-                    <i class="bi bi-list"></i>
+    <div class="container-fluid">
+        <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <div class="ms-auto d-flex align-items-center">
+            <span class="navbar-text me-3 d-none d-sm-block">
+                Hi, {{ Auth::user()->name }}
+            </span>
+            
+            {{-- FORMULIR LOGOUT YANG DIPERBAIKI --}}
+            <form method="POST" action="{{ route('logout') }}">
+                {{-- INI YANG HILANG. TAMBAHKAN BARIS INI. --}}
+                @csrf
+                
+                <button class="btn btn-outline-danger btn-sm" type="submit">
+                    <i class="bi bi-box-arrow-right me-1"></i> Logout
                 </button>
-                <div class="ms-auto d-flex align-items-center">
-                    <span class="navbar-text me-3 d-none d-sm-block">Hi, {{ Auth::user()->name }}</span>
-                    <form method="POST" action="{{ route('logout') }}"><button class="btn btn-outline-danger btn-sm" type="submit"><i class="bi bi-box-arrow-right me-1"></i> Logout</button></form>
-                </div>
-            </div>
-        </nav>
+            </form>
+        </div>
+    </div>
+</nav>
         <main class="container-fluid p-4">
             @yield('content')
         </main>
