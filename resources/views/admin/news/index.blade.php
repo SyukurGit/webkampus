@@ -4,71 +4,67 @@
 @section('header', 'Manajemen Berita')
 
 @section('content')
-<div class="card shadow-sm">
-    <div class="card-header bg-white d-flex justify-content-between align-items-center">
-        <h5 class="mb-0 text-dark">Daftar Semua Berita</h5>
-        <a href="{{ route('admin.input') }}" class="btn btn-primary btn-sm">
-            <i class="bi bi-plus-circle me-1"></i> Tambah Berita
-        </a>
-    </div>
-    <div class="card-body">
-        {{-- Menampilkan pesan sukses --}}
-        @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+<div class="container mx-auto">
+    {{-- Notifikasi Sukses --}}
+    @if(session('success'))
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-md shadow-sm" role="alert">
+            <p class="font-bold">Sukses!</p>
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover align-middle">
-                <thead class="table-dark">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4 flex justify-between items-center border-b">
+            <h2 class="text-xl font-bold text-gray-800">Daftar Semua Berita</h2>
+            <a href="{{ route('admin.input') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
+                + Tambah Berita
+            </a>
+        </div>
+        
+        <div class="overflow-x-auto">
+            <table class="min-w-full">
+                <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                     <tr>
-                        <th scope="col" style="width: 10%;">Gambar</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col" class="text-center" style="width: 15%;">Tanggal Dibuat</th>
-                        <th scope="col" class="text-center" style="width: 15%;">Aksi</th>
+                        <th class="py-3 px-6 text-left">Gambar</th>
+                        <th class="py-3 px-6 text-left">Judul</th>
+                        <th class="py-3 px-6 text-center">Tanggal</th>
+                        <th class="py-3 px-6 text-center">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-gray-600 text-sm font-light">
                     @forelse ($newsItems as $news)
-                        <tr>
-                            <td>
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left whitespace-nowrap">
                                 @if($news->image)
-                                    <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="img-fluid rounded" style="max-height: 75px; width: 100%; object-fit: cover;">
+                                    <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="w-20 h-12 object-cover rounded">
                                 @else
-                                    <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 75px;">
-                                        <small class="text-muted">No Image</small>
+                                    <div class="w-20 h-12 bg-gray-300 flex items-center justify-center rounded">
+                                        <span class="text-xs text-gray-500">No Image</span>
                                     </div>
                                 @endif
                             </td>
-                            <td>
-                                <div class="fw-bold">ID: {{ Str::limit($news->title_id, 50) }}</div>
-                                <small class="text-muted">EN: {{ Str::limit($news->title_en, 50) }}</small>
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex flex-col">
+                                    <span class="font-medium">ID: {{ Str::limit($news->title_id, 40) }}</span>
+                                    <span class="text-gray-500 text-xs">EN: {{ Str::limit($news->title_en, 40) }}</span>
+                                </div>
                             </td>
-                            <td class="text-center">
-                                {{ $news->created_at->format('d M Y') }}
+                            <td class="py-3 px-6 text-center">
+                                <span>{{ $news->created_at->format('d M Y') }}</span>
                             </td>
-                            <td class="text-center">
-                                <div class="btn-group" role="group">
-                                    {{-- Tombol Edit (belum berfungsi) --}}
-                                    <a href="{{ route('news.show', $news) }}" target="_blank" class="btn btn-info btn-sm" title="Lihat Berita">
-                                         <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                    
-                                    {{-- Tombol Hapus (sudah berfungsi) --}}
-                                    <form action="{{ route('admin.news.destroy', $news) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
+                            <td class="py-3 px-6 text-center">
+                                <div class="flex item-center justify-center gap-2">
+                                    <a href="{{ route('news.show', $news) }}" target="_blank" class="bg-blue-200 hover:bg-blue-300 text-blue-600 font-bold py-1 px-3 rounded-full text-xs" title="Lihat Berita">Lihat</a>
+                                    <form action="{{ route('admin.news.destroy', $news) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger btn-sm" title="Hapus">
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
+                                        <button type="submit" class="bg-red-200 hover:bg-red-300 text-red-600 font-bold py-1 px-3 rounded-full text-xs">Hapus</button>
                                     </form>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="text-center py-4">
+                            <td colspan="4" class="text-center py-6 text-gray-500">
                                 Tidak ada berita yang ditemukan. Silakan tambah berita baru.
                             </td>
                         </tr>

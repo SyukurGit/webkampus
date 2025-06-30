@@ -4,69 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - {{ config('app.name') }}</title>
-    
-    {{-- Memuat CSS Bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .login-container {
-            min-height: 100vh;
-        }
-    </style>
+    @vite('resources/css/app.css')
 </head>
-<body>
+<body class="bg-gray-100">
 
-    <div class="container">
-        <div class="row justify-content-center align-items-center login-container">
-            <div class="col-md-6 col-lg-5">
-                <div class="card shadow-lg border-0">
-                    <div class="card-body p-4 p-md-5">
-                        <div class="text-center mb-4">
-                            <h3 class="fw-bold">Admin Panel Login</h3>
-                            <p class="text-muted">Silakan masuk untuk melanjutkan</p>
-                        </div>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-800">Admin Panel Login</h2>
+                <p class="mt-2 text-gray-600">Silakan masuk untuk melanjutkan</p>
+            </div>
 
-                        {{-- Menampilkan pesan error validasi --}}
-                        @error('email')
-                            <div class="alert alert-danger py-2" role="alert">
-                                <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                                {{ $message }}
-                            </div>
-                        @enderror
-
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="nama@contoh.com" value="{{ old('email') }}" required>
-                                <label for="email">Alamat Email</label>
-                            </div>
-                            
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                                <label for="password">Password</label>
-                            </div>
-
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg fw-bold">
-                                    Sign In
-                                </button>
-                            </div>
-                        </form>
-                        <div class="text-center mt-4">
-                            <a href="{{ route('dashboard') }}" class="text-decoration-none">&larr; Kembali ke Situs Utama</a>
-                        </div>
-                    </div>
+            {{-- Menampilkan pesan error validasi --}}
+            @error('email')
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
+                    <span class="block sm:inline">{{ $message }}</span>
                 </div>
+            @enderror
+
+            <form method="POST" action="{{ route('login') }}" class="space-y-6">
+                @csrf
+
+                {{-- Input Email --}}
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Alamat Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                           value="{{ old('email') }}">
+                </div>
+
+                {{-- Input Password --}}
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+            <div class="text-center mt-4">
+                <a href="{{ route('dashboard') }}" class="text-sm text-indigo-600 hover:text-indigo-500 no-underline hover:underline">
+                    &larr; Kembali ke Situs Utama
+                </a>
             </div>
         </div>
     </div>
 
-    {{-- Memuat JS Bootstrap --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

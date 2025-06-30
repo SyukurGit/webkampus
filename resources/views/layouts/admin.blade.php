@@ -4,93 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Panel') - {{ config('app.name') }}</title>
-    
-    {{-- Memuat CSS Bootstrap & Ikon --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    {{-- ====================================================== --}}
-    {{-- PENYESUAIAN CSS UNTUK TAMPILAN YANG LEBIH BAIK --}}
-    {{-- ====================================================== --}}
-    <style>
-        /* 1. Membuat animasi sidebar lebih halus */
-        .offcanvas {
-            transition: transform .35s ease-in-out; /* Sedikit lebih lambat dan halus */
-        }
-
-        /* 2. Menghilangkan latar belakang putih pada menu tidak aktif */
-        #sidebar .list-group-item-dark:not(.active) {
-            background-color: transparent; /* Latar belakang transparan */
-            border: none; /* Hapus border agar lebih bersih */
-            color: #adb5bd; /* Warna teks abu-abu */
-        }
-
-        /* 3. Memberi efek hover yang lebih baik pada menu tidak aktif */
-        #sidebar .list-group-item-dark:not(.active):hover {
-            background-color: #343a40; /* Warna latar sedikit lebih terang saat disentuh */
-            color: #fff; /* Warna teks menjadi putih */
-        }
-        
-        /* 4. Memberi warna biru yang lebih solid pada menu aktif */
-        #sidebar .list-group-item.active {
-            background-color: #0d6efd;
-            border-color: #0d6efd;
-            color: white;
-            font-weight: 600; /* Membuat teks lebih tebal */
-        }
-    </style>
+    @vite('resources/css/app.css', 'resources/js/app.js')
 </head>
-<body class="bg-light">
+<body class="bg-gray-100 font-sans">
 
-    <div class="offcanvas offcanvas-start bg-dark text-white shadow-lg" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
-        <div class="offcanvas-header border-bottom border-secondary">
-            <h5 class="offcanvas-title fw-bold" id="sidebarLabel">
-                <i class="bi bi-shield-shaded me-2"></i>ADMIN PANEL
-            </h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="list-group list-group-flush">
-                <a href="{{ route('admin.news.index') }}" class="list-group-item list-group-item-action list-group-item-dark p-3 @if(request()->routeIs('admin.news.index')) active @endif">
-                    <i class="bi bi-newspaper me-2"></i> Daftar Berita
-                </a>
-                <a href="{{ route('admin.input') }}" class="list-group-item list-group-item-action list-group-item-dark p-3 @if(request()->routeIs('admin.input')) active @endif">
-                    <i class="bi bi-plus-square-fill me-2"></i> Tambah Berita
+    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+        <aside 
+            class="fixed inset-y-0 left-0 z-30 w-64 bg-gray-900 text-gray-200 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0"
+            :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}">
+
+            <div class="h-16 flex items-center justify-center bg-gray-900 border-b border-gray-800">
+                <a href="{{ route('dashboard') }}" target="_blank" class="text-xl font-bold tracking-wider text-white">
+                    KAMPUS SITE
                 </a>
             </div>
-        </div>
-    </div>
+            <nav class="flex-1 px-2 py-4 space-y-2">
+                <a href="{{ route('admin.news.index') }}" class="flex items-center px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700 hover:text-white @if(request()->routeIs('admin.news.index')) bg-gray-700 text-white @endif">
+                    <span class="mx-4 font-medium">Daftar Berita</span>
+                </a>
+                <a href="{{ route('admin.input') }}" class="flex items-center px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700 hover:text-white @if(request()->routeIs('admin.input')) bg-gray-700 text-white @endif">
+                    <span class="mx-4 font-medium">Tambah Berita</span>
+                </a>
+            </nav>
+        </aside>
 
-    <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
-    <div class="container-fluid">
-        <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-            <i class="bi bi-list"></i>
-        </button>
-
-        <div class="ms-auto d-flex align-items-center">
-            <span class="navbar-text me-3 d-none d-sm-block">
-                Hi, {{ Auth::user()->name }}
-            </span>
-            
-            {{-- FORMULIR LOGOUT YANG DIPERBAIKI --}}
-            <form method="POST" action="{{ route('logout') }}">
-                {{-- INI YANG HILANG. TAMBAHKAN BARIS INI. --}}
-                @csrf
-                
-                <button class="btn btn-outline-danger btn-sm" type="submit">
-                    <i class="bi bi-box-arrow-right me-1"></i> Logout
+        <div class="flex-1 flex flex-col">
+            <header class="h-16 bg-white shadow-sm flex justify-between items-center px-6">
+                <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 focus:outline-none md:hidden">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
-            </form>
+
+                <h1 class="text-2xl font-semibold text-gray-700">@yield('header', 'Dashboard')</h1>
+
+                <div class="flex items-center">
+                    <span class="mr-4 text-gray-600 hidden sm:block">Hi, {{ Auth::user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="text-sm bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                @yield('content')
+            </main>
         </div>
     </div>
-</nav>
-        <main class="container-fluid p-4">
-            @yield('content')
-        </main>
-    </div>
 
-    {{-- Memuat JS Bootstrap --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
