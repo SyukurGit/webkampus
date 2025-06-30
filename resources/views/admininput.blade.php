@@ -31,7 +31,7 @@
                 
                 {{-- Input untuk Gambar --}}
                 <div class="mb-4">
-                    <label for="image" class="form-label fw-bold">Gambar Utama (Opsional)</label>
+                    <label for="image" class="form-label fw-bold">Gambar berita (*Wajib)</label>
                     <input class="form-control" type="file" name="image" id="image">
                     <div class="form-text">Pilih gambar dengan format JPG, PNG, atau GIF (maks. 2MB).</div>
                 </div>
@@ -69,7 +69,7 @@
 
                 <div class="mt-4 text-end">
                     <button type="submit" class="btn btn-primary px-4">
-                        <i class="bi bi-save-fill me-1"></i> Simpan Berita
+                        <i class="bi bi-save-fill me-1"></i> Luncurkan Berita
                     </button>
                 </div>
             </form>

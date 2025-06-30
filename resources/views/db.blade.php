@@ -19,7 +19,7 @@
     {{-- Navbar Publik --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">--logo pasca--</a>
+            <a class="navbar-brand fw-bold"  href="{{ route('dashboard') }}" >--logo pasca--</a>
             <div class="ms-auto">
                 
                 <div class="dropdown">
