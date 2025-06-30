@@ -19,5 +19,14 @@ class DashboardController extends Controller
         return view('db', [
             'newsItems' => $allNews
         ]);
+
+        
+    }
+    public function show(News $news)
+    {
+        // Laravel secara otomatis akan mencari berita berdasarkan {news} di URL (Route Model Binding)
+
+        // Kirim data berita yang ditemukan ke view 'news-detail'
+        return view('news-detail', ['news' => $news]);
     }
 }

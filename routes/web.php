@@ -33,4 +33,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // INI YANG SAYA TAMBAHKAN
     // URL: /admin/news/{id}/delete -> Nama Route: admin.news.destroy
     Route::post('/news/{news}/delete', [NewsController::class, 'destroy'])->name('news.destroy');
+
+    Route::get('/berita/{news}', [DashboardController::class, 'show'])->name('news.show');
 });

@@ -52,8 +52,8 @@
                             <td class="text-center">
                                 <div class="btn-group" role="group">
                                     {{-- Tombol Edit (belum berfungsi) --}}
-                                    <a href="#" class="btn btn-warning btn-sm" title="Edit">
-                                        <i class="bi bi-pencil-square"></i>
+                                    <a href="{{ route('news.show', $news) }}" target="_blank" class="btn btn-info btn-sm" title="Lihat Berita">
+                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                     
                                     {{-- Tombol Hapus (sudah berfungsi) --}}
