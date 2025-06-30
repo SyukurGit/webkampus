@@ -4,64 +4,55 @@
 @section('header', 'Manajemen Berita')
 
 @section('content')
-<div class="bg-white p-6 rounded-lg shadow-lg">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-semibold text-gray-800">Daftar Semua Berita</h2>
-        <a href="{{ route('admin.input') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
-            + Tambah Berita
-        </a>
-    </div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Daftar Semua Berita</h2>
 
+    {{-- Menampilkan pesan sukses setelah menghapus/menambah berita --}}
     @if(session('success'))
-        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-md shadow-sm" role="alert">
-            <p>{{ session('success') }}</p>
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Sukses!</strong>
+            <span class="block sm:inline">{{ session('success') }}</span>
         </div>
     @endif
-    
+
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white">
-            <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+            <thead class="bg-gray-800 text-white">
                 <tr>
-                    <th class="py-3 px-6 text-left">Gambar</th>
-                    <th class="py-3 px-6 text-left">Judul</th>
-                    <th class="py-3 px-6 text-center">Tanggal</th>
-                    <th class="py-3 px-6 text-center">Aksi</th>
+                    <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Gambar</th>
+                    <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Judul (ID)</th>
+                    <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Judul (EN)</th>
+                    <th class="py-3 px-4 uppercase font-semibold text-sm text-center">Tanggal Dibuat</th>
+                    <th class="py-3 px-4 uppercase font-semibold text-sm text-center">Aksi</th>
                 </tr>
             </thead>
-            <tbody class="text-gray-600 text-sm font-light">
+            <tbody class="text-gray-700">
                 @forelse ($newsItems as $news)
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                    <tr class="border-b">
+                        <td class="py-3 px-4">
                             @if($news->image)
-                                <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="w-20 h-12 object-cover rounded">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="w-24 h-16 object-cover rounded">
                             @else
-                                <div class="w-20 h-12 bg-gray-200 flex items-center justify-center rounded">
-                                    <span class="text-xs text-gray-400">No Image</span>
-                                </div>
+                                <span class="text-gray-400">No Image</span>
                             @endif
                         </td>
-                        <td class="py-3 px-6 text-left">
-                            <div class="flex flex-col">
-                                <span class="font-medium">ID: {{ Str::limit($news->title_id, 40) }}</span>
-                                <span class="text-gray-500 text-xs">EN: {{ Str::limit($news->title_en, 40) }}</span>
-                            </div>
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            <span>{{ $news->created_at->format('d M Y') }}</span>
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            <div class="flex item-center justify-center gap-2">
-                                <a href="#" class="bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold py-1 px-3 rounded-full text-xs cursor-not-allowed" title="Fitur Edit belum aktif">Edit</a>
+                        <td class="py-3 px-4">{{ $news->title_id }}</td>
+                        <td class="py-3 px-4">{{ $news->title_en }}</td>
+                        <td class="py-3 px-4 text-center">{{ $news->created_at->format('d M Y') }}</td>
+                        <td class="py-3 px-4 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <a href="#" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded text-xs">Edit</a>
+                                
                                 <form action="{{ route('admin.news.destroy', $news) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
                                     @csrf
-                                    <button type="submit" class="bg-red-200 hover:bg-red-300 text-red-600 font-bold py-1 px-3 rounded-full text-xs">Hapus</button>
+                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-xs">Hapus</button>
                                 </form>
                             </div>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center py-6">Tidak ada berita yang ditemukan. Silakan tambah berita baru.</td>
+                        <td colspan="5" class="text-center py-4">Tidak ada berita yang ditemukan.</td>
                     </tr>
                 @endforelse
             </tbody>
