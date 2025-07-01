@@ -21,7 +21,7 @@ return [
     'title' => 'DARI WAKIL DIREKTUR',
     'intro' => 'Mendorong Batas Pengetahuan.',
     'body' => 'Kami berdedikasi untuk membina lingkungan di mana rasa ingin tahu berkembang dan penelitian mutakhir mendorong kemajuan. Bergabunglah dengan kami dalam perjalanan transformatif ini.',
-    'name' => 'Nama Wakil Direktur Anda',
+    'name' => 'Prof. Dr. T. Zulfikar, M.Ed',
     'position' => 'Wakil Direktur Pascasarjana',
 ],
     'carousel_slides' => [

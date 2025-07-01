@@ -19,7 +19,7 @@ return [
     'title' => 'FROM THE VICE DIRECTOR',
     'intro' => 'Pushing the Boundaries of Knowledge.',
     'body' => 'We are dedicated to fostering an environment where curiosity thrives and cutting-edge research drives progress. Join us on this transformative journey.',
-    'name' => 'Your Vice Director\'s Name',
+    'name' => 'Prof. Dr. T. Zulfikar, M.Ed',
     'position' => 'Vice Director of Postgraduate Program',
 ],
 
