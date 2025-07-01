@@ -14,7 +14,7 @@
 <div 
     x-data="{ activeSlide: 1, totalSlides: {{ count($images) }} }" 
     x-init="setInterval(() => { activeSlide = (activeSlide % totalSlides) + 1 }, 3000)"
-    class="relative w-full h-96 bg-gray-800"
+    class="relative w-full h-115 bg-gray-800"
 >
     @foreach ($images as $index => $image)
         <div 
