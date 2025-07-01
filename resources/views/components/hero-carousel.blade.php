@@ -28,7 +28,7 @@
             class="absolute inset-0"
         >
             {{-- Background Gambar --}}
-            <img src="{{ asset('images/' . $image) }}" alt="Carousel Image {{ $index + 1 }}" class="w-full h-full object-cover">
+            <img src="{{ asset('images/1carousel.png' . $image) }}" alt="Carousel Image {{ $index + 1 }}" class="w-full h-full object-cover">
             {{-- Overlay Gelap untuk Kontras --}}
             <div class="absolute inset-0 bg-black opacity-40"></div>
             {{-- Teks di Tengah (Sekarang Mengambil dari File Bahasa) --}}

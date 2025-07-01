@@ -18,7 +18,6 @@
             
             {{-- Logo Situs --}}
             <a href="{{ route('dashboard') }}">
-                {{-- Pastikan file logo Anda ada di folder public/images/ --}}
                 <img src="{{ asset('images/logo.png') }}" alt="Kampus Site Logo" class="h-10 w-auto">
             </a>
             
