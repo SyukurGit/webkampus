@@ -2,26 +2,51 @@
 // resources/lang/en/db.php
 
 return [
-    'title'           => 'Dashboard',
+    'title'         => 'Dashboard',
     'navbar_brand'    => 'LOGOPASCASARJANA',
     'login_button'    => 'Login',
     'welcome_heading' => 'Welcome to Pacsasarjana Uin',
     'welcome_p'       => 'still on develope.',
 
     'director_greeting' => [
-    'title' => 'A WORD FROM THE DIRECTOR',
-    'intro' => 'Welcome to the UIN Ar-Raniry Postgraduate Program, where innovation meets knowledge.',
-    'body' => 'With a commitment to research, practice-based learning, and industry collaboration, we prepare our students to face global challenges with innovative and sustainable solutions.',
-    'name' => 'Prof. Eka Srimulyani, MA., Ph.D',
-    'position' => 'Director of Postgraduate Program',
-],
-'vice_director_greeting' => [
-    'title' => 'FROM THE VICE DIRECTOR',
-    'intro' => 'Pushing the Boundaries of Knowledge.',
-    'body' => 'We are dedicated to fostering an environment where curiosity thrives and cutting-edge research drives progress. Join us on this transformative journey.',
-    'name' => 'Prof. Dr. T. Zulfikar, M.Ed',
-    'position' => 'Vice Director of Postgraduate Program',
-],
+        'title'    => 'A WORD FROM THE DIRECTOR',
+        'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program, where innovation meets knowledge.',
+        'body'     => 'With a commitment to research, practice-based learning, and industry collaboration, we prepare our students to face global challenges with innovative and sustainable solutions.',
+        'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
+        'position' => 'Director of Postgraduate Program',
+    ],
+
+    'study_programs' => [
+        'section_title'    => 'Study Programs',
+        'section_subtitle' => 'Choose the study program you are interested in to determine a bright future.',
+        'master_title'     => 'Master\'s Degree Accreditation',
+        'doctor_title'     => 'Doctoral Degree Accreditation',
+        'accreditation'    => 'Accreditation',
+        'view_details'     => 'View Details',
+        'programs'         => [
+            // Master's (S2)
+            's2_tafsir'            => 'Qur\'anic and Tafsir Studies [S2]',
+            's2_islamic_studies'   => 'Islamic Studies [S2]',
+            's2_islamic_education' => 'Islamic Education [S2]',
+            's2_family_law'        => 'Family Law [S2]',
+            's2_islamic_economics' => 'Islamic Economics [S2]',
+            's2_communication'     => 'Islamic Communication and Broadcasting [S2]',
+            's2_arabic_education'  => 'Arabic Language Education [S2]',
+            // Doctorate (S3)
+            's3_islamic_economics' => 'Islamic Economics [S3]',
+            's3_islamic_studies'   => 'Islamic Studies [S3]',
+            's3_islamic_education' => 'Islamic Education [S3]',
+            's3_fiqh'              => 'Modern Fiqh [S3]',
+        ],
+    ], // <-- PERBAIKAN: Kurung siku penutup untuk 'study_programs' seharusnya di sini, diikuti koma.
+
+    'vice_director_greeting' => [
+        'title'    => 'FROM THE VICE DIRECTOR',
+        'intro'    => 'Pushing the Boundaries of Knowledge.',
+        'body'     => 'We are dedicated to fostering an environment where curiosity thrives and cutting-edge research drives progress. Join us on this transformative journey.',
+        'name'     => 'Prof. Dr. T. Zulfikar, M.Ed',
+        'position' => 'Vice Director of Postgraduate Program',
+    ],
 
     'carousel_slides' => [
         '1' => 'INNOVATIVE',
@@ -30,5 +55,5 @@ return [
         '4' => 'RELIGIOUS',
         '5' => 'RESPONSIVE',
     ]
-    
+    // <-- LETAK KESALAHAN: Kurung siku penutup yang salah sebelumnya ada di sini.
 ];

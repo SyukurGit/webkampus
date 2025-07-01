@@ -55,6 +55,8 @@
     {{-- <x-welcome-greeting/>  --}}
     <x-director-greeting/>
 
+    <x-study-programs/>
+
     {{-- ================================================================= --}}
     {{-- Bagian 3: Konten Utama (Selamat Datang & Daftar Berita) --}}
     {{-- ================================================================= --}}
