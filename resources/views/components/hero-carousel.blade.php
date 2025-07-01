@@ -1,7 +1,7 @@
 {{-- resources/views/components/hero-carousel.blade.php --}}
 
 @php
-    // Kita hanya perlu mendefinisikan nama file gambarnya saja
+    // Mendefinisikan nama file gambar dari folder public/images
     $images = [
         'carousel-1.jpg',
         'carousel-2.jpg',
@@ -13,7 +13,7 @@
 
 <div 
     x-data="{ activeSlide: 1, totalSlides: {{ count($images) }} }" 
-    x-init="setInterval(() => { activeSlide = (activeSlide % totalSlides) + 1 }, 2000)"
+    x-init="setInterval(() => { activeSlide = (activeSlide % totalSlides) + 1 }, 3000)"
     class="relative w-full h-96 bg-gray-800"
 >
     @foreach ($images as $index => $image)
@@ -27,11 +27,16 @@
             x-transition:leave-end="opacity-0"
             class="absolute inset-0"
         >
-            {{-- Background Gambar --}}
-            <img src="{{ asset('images/1carousel.png' . $image) }}" alt="Carousel Image {{ $index + 1 }}" class="w-full h-full object-cover">
+            {{-- ========================================================== --}}
+            {{-- INI ADALAH PERBAIKANNYA --}}
+            {{-- Path gambar sekarang diperbaiki untuk menunjuk ke file yang benar di folder public/images --}}
+            <img src="{{ asset('images/' . $image) }}" alt="Carousel Image {{ $index + 1 }}" class="w-full h-full object-cover">
+            {{-- ========================================================== --}}
+
             {{-- Overlay Gelap untuk Kontras --}}
             <div class="absolute inset-0 bg-black opacity-40"></div>
-            {{-- Teks di Tengah (Sekarang Mengambil dari File Bahasa) --}}
+            
+            {{-- Teks di Tengah (Ini sudah benar, mengambil dari file bahasa) --}}
             <div class="absolute inset-0 flex items-center justify-center p-4">
                 <h2 class="text-white text-4xl md:text-6xl font-bold text-center drop-shadow-lg">
                     {{-- Mengambil teks secara dinamis berdasarkan urutan gambar --}}
@@ -41,6 +46,7 @@
         </div>
     @endforeach
 
+    {{-- Tombol Navigasi Slide (Bullets) --}}
     <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
         @foreach ($images as $index => $image)
             <button 

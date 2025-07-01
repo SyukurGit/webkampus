@@ -65,7 +65,7 @@
                     @endif
                 </h1>
                 <p class="text-gray-500 mb-6">
-    Dipublikasikan oleh <span class="font-bold text-gray-700">ADMIN PPS</span> pada {{ $news->created_at->format('d F Y') }}
+    Published by <span class="font-bold text-gray-700">ADMIN PPS</span> in  {{ $news->created_at->format('d F Y') }}
 </p>
 
                 @if($news->image)
