@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('db.title') ?? 'KAMPUS SITE' }} - {{ config('app.name') }}</title>
+    
+    {{-- Memuat file CSS dan JS yang sudah dikompilasi oleh Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100 font-sans">
 
-    {{-- Navbar --}}
+    {{-- ================================================================= --}}
+    {{-- Bagian 1: Navigasi Utama (Navbar) --}}
+    {{-- ================================================================= --}}
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a class="text-xl font-bold text-gray-800 flex items-center gap-2" href="{{ route('dashboard') }}">
-                <img src="{{ asset('storage/logo.png') }}" alt="Logo" class="h-8 w-auto">
-                <span class="hidden sm:inline">KAMPUS SITE</span>
+            
+            {{-- Logo Situs --}}
+            <a href="{{ route('dashboard') }}">
+                {{-- Pastikan file logo Anda ada di folder public/images/ --}}
+                <img src="{{ asset('images/logo.png') }}" alt="Kampus Site Logo" class="h-10 w-auto">
             </a>
+            
+            {{-- Dropdown Pilihan Bahasa --}}
             <div class="relative" x-data="{ open: false }">
                 <button @click="open = !open" class="flex items-center space-x-2 border rounded-md px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-100 focus:outline-none">
                     @if(app()->getLocale() == 'id')
@@ -40,14 +48,26 @@
         </div>
     </nav>
 
-    {{-- Konten Utama --}}
+    {{-- ================================================================= --}}
+    {{-- Bagian 2: Carousel Gambar Utama --}}
+    {{-- ================================================================= --}}
+    <x-hero-carousel />
+
+    {{-- ================================================================= --}}
+    {{-- Bagian 3: Konten Utama (Selamat Datang & Daftar Berita) --}}
+    {{-- ================================================================= --}}
     <main class="container mx-auto my-10 px-6">
+        
+        {{-- Teks Sambutan --}}
         <div class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-800">{{ __('db.welcome_heading') ?? 'Selamat Datang di Pascasarjana Uin' }}</h1>
             <p class="text-xl text-gray-600 mt-2">{{ __('db.welcome_p') ?? 'masih dalam tahap pengembangan.' }}</p>
         </div>
+        
+        {{-- Grid Daftar Berita --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse ($newsItems as $news)
+                {{-- Setiap kartu berita adalah link ke halaman detail --}}
                 <a href="{{ route('news.show', $news) }}" class="block group no-underline text-gray-800">
                     <div class="bg-white rounded-lg shadow-md overflow-hidden h-full transform group-hover:-translate-y-2 transition-transform duration-300">
                         @if ($news->image)
@@ -77,6 +97,7 @@
                     </div>
                 </a>
             @empty
+                {{-- Tampilan jika tidak ada berita sama sekali --}}
                 <div class="col-span-full text-center py-12">
                     <p class="text-gray-500 text-lg">Belum ada berita yang dipublikasikan.</p>
                 </div>
@@ -84,7 +105,9 @@
         </div>
     </main>
 
-    {{-- Footer --}}
+    {{-- ================================================================= --}}
+    {{-- Bagian 4: Footer --}}
+    {{-- ================================================================= --}}
     <footer class="text-center py-6 mt-10 bg-white border-t">
         <div class="container mx-auto">
             <p class="text-gray-600">&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
