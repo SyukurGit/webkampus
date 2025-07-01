@@ -52,7 +52,8 @@
     {{-- ================================================================= --}}
     <x-hero-carousel/>
 
-    <x-welcome-greeting/>
+    {{-- <x-welcome-greeting/>  --}}
+    <x-director-greeting/>
 
     {{-- ================================================================= --}}
     {{-- Bagian 3: Konten Utama (Selamat Datang & Daftar Berita) --}}

@@ -1,15 +1,10 @@
-{{-- resources/views/components/welcome-greeting.blade.php --}}
-<section class="bg-white py-12 md:py-20">
-    {{-- Kita letakkan Alpine.js di sini dan juga kelas 'relative' untuk posisi panah --}}
+<section class="bg-white py-12 md:py-20 overflow-hidden">
     <div x-data="{ showDirector: true }" class="container mx-auto px-6 relative">
 
-        {{-- ====================================================================== --}}
-        {{-- Tombol Panah (Sekarang diposisikan relatif terhadap container) --}}
-        {{-- ====================================================================== --}}
         <button 
             @click="showDirector = !showDirector" 
             class="absolute top-1/2 -right-2 md:right-0 transform -translate-y-1/2 z-20 bg-white rounded-full h-12 w-12 flex items-center justify-center shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-transform duration-300"
-            :class="{ 'rotate-180': !showDirector }" {{-- Panah akan berputar saat diklik --}}
+            :class="{ 'rotate-180': !showDirector }"
         >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -19,17 +14,18 @@
         {{-- ====================================================================== --}}
         {{-- Kontainer untuk menumpuk kedua sambutan --}}
         {{-- ====================================================================== --}}
-        <div class="relative min-h-[450px]"> {{-- Beri tinggi minimum agar tidak 'collapse' --}}
+        {{-- FIX: Tinggi minimum diatur secara responsif --}}
+        <div class="relative min-h-[600px] md:min-h-[420px] lg:min-h-[400px]">
 
             {{-- Bagian Sambutan Direktur --}}
             <div 
                 x-show="showDirector" 
-                x-transition:enter="transition ease-out duration-500"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 -translate-x-8"
+                x-transition:enter-end="opacity-100 translate-x-0"
                 x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 scale-100"
-                x-transition:leave-end="opacity-0 scale-95"
+                x-transition:leave-start="opacity-100 translate-x-0"
+                x-transition:leave-end="opacity-0 -translate-x-8"
                 class="absolute inset-0 flex flex-wrap -mx-4 items-center"
             >
                 <div class="w-full lg:w-1/3 px-4 mb-8 lg:mb-0">
@@ -43,12 +39,12 @@
             {{-- Bagian Sambutan Wakil Direktur --}}
             <div 
                 x-show="!showDirector" 
-                x-transition:enter="transition ease-out duration-500"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-x-8"
+                x-transition:enter-end="opacity-100 translate-x-0"
                 x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 scale-100"
-                x-transition:leave-end="opacity-0 scale-95"
+                x-transition:leave-start="opacity-100 translate-x-0"
+                x-transition:leave-end="opacity-0 translate-x-8"
                 class="absolute inset-0 flex flex-wrap -mx-4 items-center" 
                 style="display: none;"
             >
