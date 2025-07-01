@@ -38,7 +38,7 @@
             
             {{-- Teks di Tengah (Ini sudah benar, mengambil dari file bahasa) --}}
             <div class="absolute inset-0 flex items-center justify-center p-4">
-                <h2 class="text-white text-4xl md:text-6xl font-bold text-center drop-shadow-lg">
+                <h2 class="text-white text-6xl md:text-8xl font-bold text-center font-anton tracking-wider" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     {{-- Mengambil teks secara dinamis berdasarkan urutan gambar --}}
                     {{ __('db.carousel_slides.' . ($index + 1)) }}
                 </h2>

@@ -5,7 +5,13 @@ export default {
     "./resources/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Tambahkan bagian ini
+      fontFamily: {
+        'sans': ['ui-sans-serif', 'system-ui'], // Font default (jika diperlukan)
+        'anton': ['Anton', 'sans-serif'],      // Font baru kita
+      },
+    },
   },
   plugins: [],
 }

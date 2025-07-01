@@ -1,11 +1,10 @@
 /* resources/css/app.css */
+
+/* PASTIKAN INI ADA DI PALING ATAS, SEBELUM YANG LAIN */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* Baris-baris ini berada SETELAH @import font */
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-
-
-
-/* KOSONGKAN SISANYA, JANGAN TAMBAHKAN CSS LAIN DI SINI */
