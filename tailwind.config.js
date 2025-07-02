@@ -11,6 +11,14 @@ export default {
         'sans': ['ui-sans-serif', 'system-ui'], // Font default (jika diperlukan)
         'anton': ['Anton', 'sans-serif'],      // Font baru kita
       },
+
+colors: {
+        customwhite: '#FCFEFE',
+      },
+
+
+
+
     },
   },
   plugins: [],

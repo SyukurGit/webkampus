@@ -36,7 +36,8 @@
 </style>
 
 {{-- Latar belakang keseluruhan diubah menjadi krem (bg-amber-50) --}}
-<section class="bg-amber-50 py-16 md:py-20">
+<section class="bg-customwhite py-16 md:py-20">
+
     <div class="container mx-auto px-6 max-w-7xl">
 
         {{-- =============================================== --}}

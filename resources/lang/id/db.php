@@ -53,7 +53,7 @@ return [
    'director_greeting' => [
     'title'    => 'SAMBUTAN DIREKTUR',
     'intro'    => 'Selamat datang di Pascasarjana UIN Ar-Raniry, pusat integrasi ilmu pengetahuan, nilai-nilai keislaman, dan inovasi berkelanjutan.',
-    'body'     => 'Kami berkomitmen membentuk lulusan yang unggul secara akademik, berdaya saing global, dan berakar kuat pada etika serta spiritualitas. Melalui riset, kolaborasi, dan pembelajaran transformatif, Pascasarjana UIN Ar-Raniry hadir sebagai ruang tumbuhnya pemimpin masa depan yang visioner dan berintegritas.',
+    'body'     => 'Kami berkomitmen membentuk lulusan yang unggul secara akademik, berdaya saing global, dan berakar kuat pada etika serta spiritualitas. Melalui riset, kolaborasi, dan pembelajaran transformatif, Pascasarjana UIN Ar-Raniry hadir sebagai ruang tumbuhnya pemimpin masa depan yang visioner dan berintegritas.  ',
     'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
     'position' => 'Direktur Pascasarjana',
 ],
