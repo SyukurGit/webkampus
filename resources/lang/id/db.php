@@ -8,6 +8,15 @@ return [
     'welcome_heading' => 'Selamat Datang di Pascasarjana Uin',
     'welcome_p'       => 'masih dalam tahap pengembangan.',
 
+
+    'accreditation_levels' => [
+    'excellent' => 'Unggul',
+    'very_good' => 'Baik Sekali',
+    'good' => 'Baik',
+    'a' => 'A',
+    'b' => 'B',
+],
+
     'study_programs' => [
         'section_title'    => 'Program Studi',
         'section_subtitle' => 'Pilih Program studi yang anda minati untuk menentukan masa depan yang cemerlang.',
@@ -32,13 +41,13 @@ return [
         ],
     ], // <-- PERBAIKAN 1: Kurung siku penutup untuk 'study_programs' seharusnya di sini.
 
-    'director_greeting' => [
-        'title'    => 'SAMBUTAN DIREKTUR',
-        'intro'    => 'Selamat datang di Pascasarjana UIN Ar-Raniry, tempat di mana inovasi bertemu dengan pengetahuan.',
-        'body'     => 'Dengan komitmen pada riset, pembelajaran berbasis praktik, dan kolaborasi industri, kami mempersiapkan mahasiswa untuk menghadapi tantangan global dengan solusi inovatif dan berkelanjutan.',
-        'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
-        'position' => 'Direktur Pascasarjana',
-    ],
+   'director_greeting' => [
+    'title'    => 'SAMBUTAN DIREKTUR',
+    'intro'    => 'Selamat datang di Pascasarjana UIN Ar-Raniry, pusat integrasi ilmu pengetahuan, nilai-nilai keislaman, dan inovasi berkelanjutan.',
+    'body'     => 'Kami berkomitmen membentuk lulusan yang unggul secara akademik, berdaya saing global, dan berakar kuat pada etika serta spiritualitas. Melalui riset, kolaborasi, dan pembelajaran transformatif, Pascasarjana UIN Ar-Raniry hadir sebagai ruang tumbuhnya pemimpin masa depan yang visioner dan berintegritas.',
+    'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
+    'position' => 'Direktur Pascasarjana',
+],
 
     'vice_director_greeting' => [
         'title'    => 'DARI WAKIL DIREKTUR',

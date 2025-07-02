@@ -8,13 +8,22 @@ return [
     'welcome_heading' => 'Welcome to Pacsasarjana Uin',
     'welcome_p'       => 'still on develope.',
 
+    'accreditation_levels' => [
+    'excellent' => 'Excellent',
+    'very_good' => 'Very Good',
+    'good' => 'Good',
+    'a' => 'A',
+    'b' => 'B',
+],
+
     'director_greeting' => [
-        'title'    => 'A WORD FROM THE DIRECTOR',
-        'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program, where innovation meets knowledge.',
-        'body'     => 'With a commitment to research, practice-based learning, and industry collaboration, we prepare our students to face global challenges with innovative and sustainable solutions.',
-        'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
-        'position' => 'Director of Postgraduate Program',
-    ],
+    'title'    => 'A WORD FROM THE DIRECTOR',
+    'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program — a hub where knowledge, faith, and innovation converge.',
+    'body'     => 'We are committed to nurturing graduates who excel academically, compete globally, and uphold strong ethical and spiritual values. Through impactful research, strategic collaboration, and transformative learning, the Postgraduate Program of UIN Ar-Raniry strives to shape visionary leaders with integrity and purpose.',
+    'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
+    'position' => 'Director of Postgraduate Program',
+],
+
 
     'study_programs' => [
         'section_title'    => 'Study Programs',
@@ -55,5 +64,7 @@ return [
         '4' => 'RELIGIOUS',
         '5' => 'RESPONSIVE',
     ]
+
+    
     // <-- LETAK KESALAHAN: Kurung siku penutup yang salah sebelumnya ada di sini.
 ];
