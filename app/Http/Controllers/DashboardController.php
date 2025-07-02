@@ -12,13 +12,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // Ambil semua berita dari database, urutkan dari yang terbaru.
-        $allNews = News::latest()->get();
+         // FIX: Ambil hanya 4 berita terbaru dari database
+    $latestNews = News::latest()->take(4)->get();
 
-        // Kirim data berita ke view 'db'
-        return view('db', [
-            'newsItems' => $allNews
-        ]);
+    // Kirim data berita ke view 'db'
+    return view('db', [
+        'newsItems' => $latestNews
+    ]);
 
         
     }
