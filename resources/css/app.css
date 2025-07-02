@@ -5,6 +5,8 @@
 
 /* Baris-baris ini berada SETELAH @import font */
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+a{
+    text-decoration: none;
+    
+}
