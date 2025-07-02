@@ -8,6 +8,14 @@ return [
     'welcome_heading' => 'Welcome to Pacsasarjana Uin',
     'welcome_p'       => 'still on develope.',
 
+ 'key_features' => [
+    'feature1_title' => 'Why Us?',
+    'feature1_text' => 'The Postgraduate Program is one of the flagship programs at UIN Ar-Raniry Banda Aceh.',
+    'feature2_title' => 'Campus Life',
+    'feature2_text' => 'Conducting learning in a comfortable atmosphere, a strategic location, and equipped with adequate infrastructure.',
+    'feature3_title' => 'Admission',
+    'feature3_text' => 'Come be a part of our "UIN Ar-raniry Banda Aceh Postgraduate Program"',
+],
     'accreditation_levels' => [
     'excellent' => 'Excellent',
     'very_good' => 'Very Good',

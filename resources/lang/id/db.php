@@ -8,6 +8,15 @@ return [
     'welcome_heading' => 'Selamat Datang di Pascasarjana Uin',
     'welcome_p'       => 'masih dalam tahap pengembangan.',
 
+    
+'key_features' => [
+    'feature1_title' => 'Why Us?',
+    'feature1_text' => 'Pascasarjana merupakan salah satu program Unggulan yang dimiliki UIN Ar-Raniry Banda Aceh.',
+    'feature2_title' => 'Campus Life',
+    'feature2_text' => 'Melaksanakan pembelajaran dengan atmosfer yang nyaman, lokasi yang strategis serta dilengkapi dengan sarana prasarana yang memadai.',
+    'feature3_title' => 'Admission',
+    'feature3_text' => 'Mari menjadi bagian dari kami "Pascasarjana UIN Ar-raniry Banda Aceh"',
+],
 
     'accreditation_levels' => [
     'excellent' => 'Unggul',

@@ -125,6 +125,8 @@
     {{-- ================================================================= --}}
     <x-hero-carousel/>
 
+    <x-key-features/>
+
     {{-- <x-welcome-greeting/>  --}}
     <x-director-greeting/>
 
