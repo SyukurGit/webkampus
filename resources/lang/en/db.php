@@ -30,6 +30,7 @@ return [
     'body'     => 'We are committed to nurturing graduates who excel academically, compete globally, and uphold strong ethical and spiritual values. Through impactful research, strategic collaboration, and transformative learning, the Postgraduate Program of UIN Ar-Raniry strives to shape visionary leaders with integrity and purpose.',
     'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
     'position' => 'Director of Postgraduate Program',
+    'slogan' => 'The Nation\'s Energy, Synergy in Building the Country.',
 ],
 
 

@@ -22,6 +22,14 @@
                     <p class="text-gray-600 leading-relaxed text-lg">
                         {{ __('db.director_greeting.body') }}
                     </p>
+
+                    {{-- =============================================== --}}
+                    {{-- SLOGAN BARU DITAMBAHKAN DI SINI --}}
+                    {{-- =============================================== --}}
+                    <p class="text-gray-700 font-medium italic mt-6 text-lg">
+                        "{{ __('db.director_greeting.slogan') }}"
+                    </p>
+
                 </div>
             </div>
 
