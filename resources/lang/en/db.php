@@ -17,7 +17,7 @@ return [
     'welcome_p'       => 'Still in development.',
 
     'facilities' => [
-    'section_title' => 'Quality Facilities',
+    'section_title' => 'VARIOUS SUPPORTING FACILITIES',
     'items' => [
         'Doctoral Classroom',
         'INSPIRASI Stage',

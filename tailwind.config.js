@@ -15,6 +15,7 @@ export default {
 colors: {
         customwhite: '#FCFEFE',
         customblue: '#239B9E',
+        
       },
 
 

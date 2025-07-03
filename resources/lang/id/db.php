@@ -18,7 +18,7 @@ return [
 
 
     'facilities' => [
-    'section_title' => 'Fasilitas Kualitas',
+    'section_title' => 'RAGAM FASILITAS PENDUKUNG',
     'items' => [
         'Ruang Kuliah Doktor',
         'Panggung INSPIRASI',

@@ -36,7 +36,7 @@
                 {{-- Teks Overlay yang Sudah Diperbaiki --}}
                 {{-- ========================================================== --}}
                 <div class="absolute top-4 left-0">
-                    <div class="bg-black backdrop-blur-sm text-white px-5 py-2" style="clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%);">
+                    <div class="bg-gray-800 backdrop-blur-sm text-white px-5 py-2" style="clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%);">
                         <h3 class="font-bold text-xl">{{ __($facility['text_key']) }}</h3>
                     </div>
                 </div>

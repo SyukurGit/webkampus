@@ -21,7 +21,8 @@
 
 <style>
     .program-card {
-        background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+        /* background: linear-gradient(135deg, rgb(185, 28, 28) 0%, #DC2626 100%); */
+        background: linear-gradient(135deg, #35455a 0%, #1F2937 100%); 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .program-card:hover {
