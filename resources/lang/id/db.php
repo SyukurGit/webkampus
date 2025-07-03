@@ -16,6 +16,22 @@ return [
     'welcome_heading' => 'Selamat Datang di Pascasarjana Uin',
     'welcome_p'       => 'masih dalam tahap pengembangan.',
 
+
+    'facilities' => [
+    'section_title' => 'Fasilitas Kualitas',
+    'items' => [
+        'Ruang Kuliah Doktor',
+        'Panggung INSPIRASI',
+        'PUSAT INOVASI',
+        'WISMA',
+        'Ruang Lab/Kreasi',
+        'Perpustakaan',
+        'Ruang Akademik/Umum',
+        'Ruang Podcast',
+        'Ruang Lab. Komputer',
+    ]
+],
+
     // =======================
     // Fitur Utama (Why Us, Campus Life, Admission)
     // =======================

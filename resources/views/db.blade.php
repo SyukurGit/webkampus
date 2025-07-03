@@ -132,6 +132,8 @@
 
     {{-- Memanggil komponen Berita Terbaru --}}
     <x-latest-news :newsItems="$newsItems" />
+
+    <x-facilities-grid/>
     
    {{-- footer --}}
     <x-footer/>

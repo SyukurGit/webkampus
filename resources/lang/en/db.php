@@ -16,6 +16,20 @@ return [
     'welcome_heading' => 'Welcome to Postgraduate UIN',
     'welcome_p'       => 'Still in development.',
 
+    'facilities' => [
+    'section_title' => 'Quality Facilities',
+    'items' => [
+        'Doctoral Classroom',
+        'INSPIRASI Stage',
+        'INNOVATION CENTER',
+        'GUEST HOUSE',
+        'Lab/Creation Room',
+        'Library',
+        'General Academic Room',
+        'Podcast Room',
+        'Computer Lab',
+    ]
+],
     // =======================
     // Key Features Section
     // =======================
