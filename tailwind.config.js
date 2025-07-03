@@ -6,21 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      // Tambahkan bagian ini
       fontFamily: {
-        'sans': ['ui-sans-serif', 'system-ui'], // Font default (jika diperlukan)
-        'anton': ['Anton', 'sans-serif'],      // Font baru kita
+        'sans': ['ui-sans-serif', 'system-ui'],
+        'anton': ['Anton', 'sans-serif'],
       },
-
-colors: {
+      colors: {
         customwhite: '#FCFEFE',
         customblue: '#239B9E',
-        
+        primary: '#135DFB',
       },
-
-
-
-
     },
   },
   plugins: [],

@@ -17,7 +17,7 @@
 
             <div class="w-full lg:w-2/3 px-4">
                 <div class="text-left">
-                    <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-2">{{ __('db.director_greeting.title') }}</p>
+                    <p class="text-xl font-semibold uppercase tracking-wider text-blue-700 mb-2">{{ __('db.director_greeting.title') }}</p>
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{{ __('db.director_greeting.intro') }}</h2>
                     <p class="text-gray-600 leading-relaxed text-lg">
                         {{ __('db.director_greeting.body') }}
