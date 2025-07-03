@@ -133,14 +133,8 @@
     {{-- Memanggil komponen Berita Terbaru --}}
     <x-latest-news :newsItems="$newsItems" />
     
-    {{-- ================================================================= --}}
-    {{-- Bagian Footer --}}
-    {{-- ================================================================= --}}
-    <footer class="text-center py-6 bg-white border-t">
-        <div class="container mx-auto">
-            <p class="text-gray-600">&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
-        </div>
-    </footer>
+   {{-- footer --}}
+    <x-footer/>
 
 </body>
 </html>

@@ -1,39 +1,47 @@
 <?php
-// resources/lang/en/db.php
+
+// ============================================
+// FILE BAHASA: resources/lang/en/db.php
+// Deskripsi: Static texts for frontend (English version)
+// ============================================
 
 return [
-    'title'         => 'Dashboard',
+
+    // =======================
+    // General & Header
+    // =======================
+    'title'           => 'Dashboard',
     'navbar_brand'    => 'LOGOPASCASARJANA',
     'login_button'    => 'Login',
-    'welcome_heading' => 'Welcome to Pacsasarjana Uin',
-    'welcome_p'       => 'still on develope.',
+    'welcome_heading' => 'Welcome to Postgraduate UIN',
+    'welcome_p'       => 'Still in development.',
 
- 'key_features' => [
-    'feature1_title' => 'Why Us?',
-    'feature1_text' => 'The Postgraduate Program is one of the flagship programs at UIN Ar-Raniry Banda Aceh.',
-    'feature2_title' => 'Campus Life',
-    'feature2_text' => 'Conducting learning in a comfortable atmosphere, a strategic location, and equipped with adequate infrastructure.',
-    'feature3_title' => 'Admission',
-    'feature3_text' => 'Come be a part of our "UIN Ar-raniry Banda Aceh Postgraduate Program"',
-],
+    // =======================
+    // Key Features Section
+    // =======================
+    'key_features' => [
+        'feature1_title' => 'Why Us?',
+        'feature1_text'  => 'The Postgraduate Program is one of the flagship programs at UIN Ar-Raniry Banda Aceh.',
+        'feature2_title' => 'Campus Life',
+        'feature2_text'  => 'Conducting learning in a comfortable atmosphere, a strategic location, and equipped with adequate infrastructure.',
+        'feature3_title' => 'Admission',
+        'feature3_text'  => 'Come be a part of our "UIN Ar-Raniry Banda Aceh Postgraduate Program".',
+    ],
+
+    // =======================
+    // Accreditation Levels
+    // =======================
     'accreditation_levels' => [
-    'excellent' => 'Excellent',
-    'very_good' => 'Very Good',
-    'good' => 'Good',
-    'a' => 'A',
-    'b' => 'B',
-],
+        'excellent'  => 'Excellent',
+        'very_good'  => 'Very Good',
+        'good'       => 'Good',
+        'a'          => 'A',
+        'b'          => 'B',
+    ],
 
-    'director_greeting' => [
-    'title'    => 'A WORD FROM THE DIRECTOR',
-    'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program — a hub where knowledge, faith, and innovation converge.',
-    'body'     => 'We are committed to nurturing graduates who excel academically, compete globally, and uphold strong ethical and spiritual values. Through impactful research, strategic collaboration, and transformative learning, the Postgraduate Program of UIN Ar-Raniry strives to shape visionary leaders with integrity and purpose.',
-    'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
-    'position' => 'Director of Postgraduate Program',
-    'slogan' => 'The Nation\'s Energy, Synergy in Building the Country.',
-],
-
-
+    // =======================
+    // Study Programs (S2 & S3)
+    // =======================
     'study_programs' => [
         'section_title'    => 'Study Programs',
         'section_subtitle' => 'Choose the study program you are interested in to determine a bright future.',
@@ -41,7 +49,9 @@ return [
         'doctor_title'     => 'Doctoral Degree Accreditation',
         'accreditation'    => 'Accreditation',
         'view_details'     => 'View Details',
-        'programs'         => [
+
+        // --- Study Program List ---
+        'programs' => [
             // Master's (S2)
             's2_tafsir'            => 'Qur\'anic and Tafsir Studies [S2]',
             's2_islamic_studies'   => 'Islamic Studies [S2]',
@@ -56,8 +66,23 @@ return [
             's3_islamic_education' => 'Islamic Education [S3]',
             's3_fiqh'              => 'Modern Fiqh [S3]',
         ],
-    ], // <-- PERBAIKAN: Kurung siku penutup untuk 'study_programs' seharusnya di sini, diikuti koma.
+    ], // <<< penutup array 'study_programs'
 
+    // =======================
+    // Director's Greeting
+    // =======================
+    'director_greeting' => [
+        'title'    => 'A WORD FROM THE DIRECTOR',
+        'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program — a hub where knowledge, faith, and innovation converge.',
+        'body'     => 'We are committed to nurturing graduates who excel academically, compete globally, and uphold strong ethical and spiritual values. Through impactful research, strategic collaboration, and transformative learning, the Postgraduate Program of UIN Ar-Raniry strives to shape visionary leaders with integrity and purpose.',
+        'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
+        'position' => 'Director of Postgraduate Program',
+        'slogan'   => 'The Nation\'s Energy, Synergy in Building the Country.',
+    ],
+
+    // =======================
+    // Vice Director's Greeting
+    // =======================
     'vice_director_greeting' => [
         'title'    => 'FROM THE VICE DIRECTOR',
         'intro'    => 'Pushing the Boundaries of Knowledge.',
@@ -66,14 +91,61 @@ return [
         'position' => 'Vice Director of Postgraduate Program',
     ],
 
+    // =======================
+    // Carousel Slides Section
+    // =======================
     'carousel_slides' => [
         '1' => 'INNOVATIVE',
         '2' => 'NATIONALISTIC',
         '3' => 'EXCELLENT',
         '4' => 'RELIGIOUS',
         '5' => 'RESPONSIVE',
-    ]
+    ], // <<< di sini akhir dari carousel_slides
 
-    
-    // <-- LETAK KESALAHAN: Kurung siku penutup yang salah sebelumnya ada di sini.
-];
+    // =======================
+    // Footer Section
+    // =======================
+    'footer' => [
+        'slogan'         => 'Building the nation with the young generation',
+
+        // --- Profile Menu ---
+        'profile_title'  => 'PROFILE',
+        'profile_links'  => [
+            'History',
+            'Vision and Mission',
+            'Deanship',
+            'Organizational Structure',
+            'Professors',
+            'Educational Staff',
+            'Cooperation',
+        ],
+
+        // --- Education Menu ---
+        'education_title' => 'EDUCATION',
+        'education_links' => [
+            'Faculties',
+            'Quality Assurance',
+            'Students',
+        ],
+
+        // --- Information Menu ---
+        'info_title' => 'INFORMATION',
+        'info_links' => [
+            'News',
+            'Data Center',
+            'Thesis Status',
+        ],
+
+        // --- Quick Links Menu ---
+        'quick_links_title' => 'QUICK LINKS',
+        'quick_links' => [
+            'UIN Ar-Raniry',
+            'Quality Assurance Cluster',
+            'FST Web Dev Team',
+        ],
+
+        // --- Copyright ---
+        'copyright' => 'Information Technology Dev Team',
+    ], // <<< penutup array 'footer'
+
+]; // <<< penutup utama return[]
