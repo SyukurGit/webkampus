@@ -39,3 +39,4 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // URL: /admin/news/{id}/delete -> Nama Route: admin.news.destroy
     Route::post('/news/{news}/delete', [NewsController::class, 'destroy'])->name('news.destroy');
 });
+
