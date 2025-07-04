@@ -16,6 +16,16 @@ return [
     'welcome_heading' => 'Selamat Datang di Pascasarjana Uin',
     'welcome_p'       => 'masih dalam tahap pengembangan.',
 
+    'navbar' => [
+    'home' => 'Home',
+    'profile' => 'Profil',
+    'study_programs' => 'Program Studi',
+    'academics' => 'Akademik',
+    'service' => 'Pengabdian',
+    'research' => 'Penelitian',
+    'thesis_defense_schedule' => 'Daftar Sidang',
+],
+
 
     'facilities' => [
     'section_title' => 'RAGAM FASILITAS PENDUKUNG',

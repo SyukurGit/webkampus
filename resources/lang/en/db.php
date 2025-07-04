@@ -16,6 +16,17 @@ return [
     'welcome_heading' => 'Welcome to Postgraduate UIN',
     'welcome_p'       => 'Still in development.',
 
+    // resources/lang/en/db.php
+'navbar' => [
+    'home' => 'Home',
+    'profile' => 'Profile',
+    'study_programs' => 'Study Programs',
+    'academics' => 'Academics',
+    'service' => 'Service',
+    'research' => 'Research',
+    'thesis_defense_schedule' => 'Thesis Defense Schedule',
+],
+
     'facilities' => [
     'section_title' => 'VARIOUS SUPPORTING FACILITIES',
     'items' => [
