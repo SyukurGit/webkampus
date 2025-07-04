@@ -13,7 +13,7 @@
                 <div class="w-20 h-20 bg-gray-700 rounded-md mb-4 flex items-center justify-center">
                     <span class="text-xs text-gray-500">Logo</span>
                 </div>
-                <h3 class="text-white font-bold text-lg">Fakultas Sains dan Teknologi UIN Ar-Raniry</h3>
+                <h3 class="text-white font-bold text-lg">Pascasarjana UIN Ar-Raniry</h3>
                 <p class="mt-2 text-sm">{{ __('db.footer.slogan') }}</p>
             </div>
 
@@ -64,7 +64,7 @@
             <p>&copy; {{ date('Y') }} {{ __('db.footer.copyright') }}</p>
             <div class="flex mt-4 md:mt-0 space-x-4">
                 {{-- Anda bisa menambahkan ikon sosial media di sini jika perlu --}}
-                <span>Tim Pengembang Web FST</span>
+                <span><>Tim Developer Web PASCA</span>
             </div>
         </div>
     </div>
