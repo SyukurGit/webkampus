@@ -31,9 +31,15 @@
     }
 </style>
 
-{{-- Latar belakang diubah menjadi bg-customwhite --}}
-<section class="bg-customwhite py-16 md:py-20">
+
+<section class="py-16 md:py-20">
     <div class="container mx-auto px-6 max-w-7xl">
+
+        <div class="text-center mb-12 -mt-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+                {{ __('db.study_programs.section_header') }}
+            </h2>
+        </div>
         
         {{-- Bagian Studi Doktor --}}
         <div class="mb-16">

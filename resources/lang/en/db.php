@@ -24,6 +24,8 @@ return [
     'academics' => 'Academics',
     'service' => 'Service',
     'research' => 'Research',
+    'quality' => 'Quality',
+    'news' => 'News',
     'thesis_defense_schedule' => 'Thesis Defense Schedule',
 ],
 
@@ -68,10 +70,11 @@ return [
     // Study Programs (S2 & S3)
     // =======================
     'study_programs' => [
-        'section_title'    => 'Study Programs',
+        'section_header'   => 'List of Study Programs',
+        'section_title'    => 'Our Study Programs',
         'section_subtitle' => 'Choose the study program you are interested in to determine a bright future.',
-        'master_title'     => 'Master\'s Degree Accreditation',
-        'doctor_title'     => 'Doctoral Degree Accreditation',
+        'master_title'     => 'Master\'s Degree',
+        'doctor_title'     => 'Doctoral Degree',
         'accreditation'    => 'Accreditation',
         'view_details'     => 'View Details',
 
@@ -98,7 +101,7 @@ return [
     // =======================
     'director_greeting' => [
         'title'    => '--A WORD FROM THE DIRECTOR--',
-        'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program — a hub where knowledge, faith, and innovation converge.',
+        'intro'    => 'Welcome to the UIN Ar-Raniry Postgraduate Program.',
         'body'     => 'We are committed to nurturing graduates who excel academically, compete globally, and uphold strong ethical and spiritual values. Through impactful research, strategic collaboration, and transformative learning, the Postgraduate Program of UIN Ar-Raniry strives to shape visionary leaders with integrity and purpose.',
         'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
         'position' => 'Director of Postgraduate Program',
@@ -108,13 +111,13 @@ return [
     // =======================
     // Vice Director's Greeting
     // =======================
-    'vice_director_greeting' => [
-        'title'    => 'FROM THE VICE DIRECTOR',
-        'intro'    => 'Pushing the Boundaries of Knowledge.',
-        'body'     => 'We are dedicated to fostering an environment where curiosity thrives and cutting-edge research drives progress. Join us on this transformative journey.',
-        'name'     => 'Prof. Dr. T. Zulfikar, M.Ed',
-        'position' => 'Vice Director of Postgraduate Program',
-    ],
+    // 'vice_director_greeting' => [
+    //     'title'    => 'FROM THE VICE DIRECTOR',
+    //     'intro'    => 'Pushing the Boundaries of Knowledge.',
+    //     'body'     => 'We are dedicated to fostering an environment where curiosity thrives and cutting-edge research drives progress. Join us on this transformative journey.',
+    //     'name'     => 'Prof. Dr. T. Zulfikar, M.Ed',
+    //     'position' => 'Vice Director of Postgraduate Program',
+    // ],
 
     // =======================
     // Carousel Slides Section

@@ -10,11 +10,7 @@ return [
     // =======================
     // Bagian Umum & Header
     // =======================
-    'title'           => 'Dashboard',
-    'navbar_brand'    => 'LOGOPASCASARJANA',
-    'login_button'    => 'Login',
-    'welcome_heading' => 'Selamat Datang di Pascasarjana Uin',
-    'welcome_p'       => 'masih dalam tahap pengembangan.',
+   
 
     'navbar' => [
     'home' => 'Home',
@@ -23,6 +19,8 @@ return [
     'academics' => 'Akademik',
     'service' => 'Pengabdian',
     'research' => 'Penelitian',
+    'quality' => 'Mutu',
+    'news' => 'Berita',
     'thesis_defense_schedule' => 'Daftar Sidang',
 ],
 
@@ -69,10 +67,11 @@ return [
     // Program Studi (S2 & S3)
     // =======================
     'study_programs' => [
-        'section_title'    => 'Program Studi',
+        'section_header'   => 'Daftar Program Studi',
+        'section_title'    => 'Program Studi Kami',
         'section_subtitle' => 'Pilih Program studi yang anda minati untuk menentukan masa depan yang cemerlang.',
-        'master_title'     => 'Akreditasi Studi Magister',
-        'doctor_title'     => 'Akreditasi Studi Doktor',
+        'master_title'     => 'Studi Magister',
+        'doctor_title'     => 'Studi Doktor',
         'accreditation'    => 'Akreditasi',
         'view_details'     => 'Lihat Detail',
 
@@ -99,7 +98,7 @@ return [
     // =======================
     'director_greeting' => [
         'title'    => '---SAMBUTAN DIREKTUR---',
-        'intro'    => 'Selamat datang di Pascasarjana UIN Ar-Raniry, pusat integrasi ilmu pengetahuan, nilai-nilai keislaman, dan inovasi berkelanjutan.',
+        'intro'    => 'Selamat datang di Pascasarjana UIN Ar-Raniry.',
         'body'     => 'Kami berkomitmen membentuk lulusan yang unggul secara akademik, berdaya saing global, dan berakar kuat pada etika serta spiritualitas. Melalui riset, kolaborasi, dan pembelajaran transformatif, Pascasarjana UIN Ar-Raniry hadir sebagai ruang tumbuhnya pemimpin masa depan yang visioner dan berintegritas.',
         'name'     => 'Prof. Eka Srimulyani, MA., Ph.D',
         'position' => 'Direktur Pascasarjana',
@@ -109,13 +108,13 @@ return [
     // =======================
     // Sambutan Wakil Direktur
     // =======================
-    'vice_director_greeting' => [
-        'title'    => 'DARI WAKIL DIREKTUR',
-        'intro'    => 'Mendorong Batas Pengetahuan.',
-        'body'     => 'Kami berdedikasi untuk membina lingkungan di mana rasa ingin tahu berkembang dan penelitian mutakhir mendorong kemajuan. Bergabunglah dengan kami dalam perjalanan transformatif ini.',
-        'name'     => 'Prof. Dr. T. Zulfikar, M.Ed',
-        'position' => 'Wakil Direktur Pascasarjana',
-    ],
+    // 'vice_director_greeting' => [
+    //     'title'    => 'DARI WAKIL DIREKTUR',
+    //     'intro'    => 'Mendorong Batas Pengetahuan.',
+    //     'body'     => 'Kami berdedikasi untuk membina lingkungan di mana rasa ingin tahu berkembang dan penelitian mutakhir mendorong kemajuan. Bergabunglah dengan kami dalam perjalanan transformatif ini.',
+    //     'name'     => 'Prof. Dr. T. Zulfikar, M.Ed',
+    //     'position' => 'Wakil Direktur Pascasarjana',
+    // ],
 
     // =======================
     // Carousel Slide (Kata kunci)
