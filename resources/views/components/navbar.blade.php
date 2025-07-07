@@ -1,6 +1,24 @@
 {{-- resources/views/components/navbar.blade.php --}}
 @php
-    $studyPrograms = __('db.study_programs.programs');
+    // ======================================================================
+    // DATA PROGRAM STUDI DENGAN LINK
+    // Ganti nilai '#...' dengan URL tujuan Anda.
+    // ======================================================================
+    $studyPrograms = [
+        // Magister (S2)
+        ['key' => 's2_tafsir',            'link' => 'https://pps.ar-raniry.ac.id/program-studi/ilmu-al-quran-dan-tafsir-s2/'],
+        ['key' => 's2_islamic_studies',   'link' => '#link-untuk-s2-studi-islam'],
+        ['key' => 's2_islamic_education', 'link' => 'https://pps.ar-raniry.ac.id/program-studi/pendidikan-agama-islam-s2/'],
+        ['key' => 's2_family_law',        'link' => '#link-untuk-s2-hukum-keluarga'],
+        ['key' => 's2_islamic_economics', 'link' => 'https://pps.ar-raniry.ac.id/program-studi/ekonomi-syariah-s2/'],
+        ['key' => 's2_communication',     'link' => '#link-untuk-s2-kpi'],
+        ['key' => 's2_arabic_education',  'link' => 'https://pps.ar-raniry.ac.id/program-studi/pendidikan-bahasa-arab-s2/'],
+        // Doktor (S3)
+        ['key' => 's3_islamic_economics', 'link' => 'https://pps.ar-raniry.ac.id/program-studi/ekonomi-syariah-s3/'],
+        ['key' => 's3_islamic_studies',   'link' => 'https://pps.ar-raniry.ac.id/program-studi/studi-islam-s3/'],
+        ['key' => 's3_islamic_education', 'link' => 'https://pps.ar-raniry.ac.id/program-studi/pendidikan-agama-islam-s3/'],
+        ['key' => 's3_fiqh',              'link' => 'https://pps.ar-raniry.ac.id/program-studi/fiqih-modern-s3/'],
+    ];
 @endphp
 
 <nav class="bg-white shadow-md sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
@@ -13,12 +31,10 @@
                 </a>
             </div>
 
-            {{-- =============================================== --}}
-            {{-- MENU DESKTOP DENGAN LOGIKA KLIK --}}
-            {{-- =============================================== --}}
+            {{-- MENU DESKTOP --}}
             <div class="hidden md:flex items-center space-x-4">
                 <a href="#" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.home') }}</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.profile') }}</a>
+                <a href="https://pps.ar-raniry.ac.id/profil/sambutan-direktur/" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.profile') }}</a>
 
                 {{-- Dropdown Program Studi (di-klik) --}}
                 <div class="relative" x-data="{ open: false }">
@@ -37,7 +53,8 @@
                          class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-20" 
                          style="display: none;">
                         @foreach($studyPrograms as $program)
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ $program }}</a>
+                            {{-- Menggunakan link dari array --}}
+                            <a href="{{ $program['link'] }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ __('db.study_programs.programs.' . $program['key']) }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -50,22 +67,17 @@
                     </button>
                     <div x-show="open"
                          @click.away="open = false"
-                         x-transition:enter="transition ease-out duration-200"
-                         x-transition:enter-start="opacity-0 transform -translate-y-2"
-                         x-transition:enter-end="opacity-100 transform translate-y-0"
-                         x-transition:leave="transition ease-in duration-150"
-                         x-transition:leave-start="opacity-100 transform translate-y-0"
-                         x-transition:leave-end="opacity-0 transform -translate-y-2"
+                         x-transition
                          class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-20"
                          style="display: none;">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ __('db.navbar.thesis_defense_schedule') }}</a>
+                        <a href="https://pps.ar-raniry.ac.id/daftar-sidang/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ __('db.navbar.thesis_defense_schedule') }}</a>
                     </div>
                 </div>
                 
-                <a href="#" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.service') }}</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.research') }}</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.quality') }}</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.news') }}</a>
+                <a href="https://pps.ar-raniry.ac.id/kpm-singkil" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.service') }}</a>
+                <a href="https://pps.ar-raniry.ac.id/penelitian/" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.research') }}</a>
+                <a href="https://pps.ar-raniry.ac.id/gugus-penjaminan-mutu/" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.quality') }}</a>
+                <a href="https://pps.ar-raniry.ac.id/category/akademik/" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">{{ __('db.navbar.news') }}</a>
             </div>
 
             {{-- Tombol Mobile & Pilihan Bahasa --}}
@@ -86,16 +98,7 @@
                         <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     
-                    <div x-show="langOpen" 
-                         @click.away="langOpen = false" 
-                         x-transition:enter="transition ease-out duration-200"
-                         x-transition:enter-start="opacity-0 transform -translate-y-2"
-                         x-transition:enter-end="opacity-100 transform translate-y-0"
-                         x-transition:leave="transition ease-in duration-150"
-                         x-transition:leave-start="opacity-100 transform translate-y-0"
-                         x-transition:leave-end="opacity-0 transform -translate-y-2"
-                         class="absolute right-0 mt-2 py-1 w-40 bg-white rounded-md shadow-xl z-20"
-                         style="display: none;">
+                    <div x-show="langOpen" @click.away="langOpen = false" x-transition class="absolute right-0 mt-2 py-1 w-40 bg-white rounded-md shadow-xl z-20" style="display: none;">
                         <a href="{{ route('lang.switch', 'id') }}" class="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             <span class="flex items-center justify-center bg-gray-200 rounded-sm p-0.5">
                                 <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><rect width="9" height="3" fill="#E31D1A"/><rect y="3" width="9" height="3" fill="#F7F7F7"/></svg>
@@ -132,7 +135,7 @@
          style="display: none;">
         <div @click.away="mobileMenuOpen = false" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.home') }}</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.profile') }}</a>
+            <a href="https://pps.ar-raniry.ac.id/profil/sambutan-direktur/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.profile') }}</a>
             
             <div x-data="{ open: false }" class="overflow-hidden">
                 <button @click="open = !open" class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
@@ -148,7 +151,8 @@
                      x-transition:leave-end="opacity-0 max-h-0"
                      class="pl-4 mt-2 space-y-1">
                     @foreach($studyPrograms as $program)
-                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">{{ $program }}</a>
+                        {{-- Menggunakan link dari array di mode mobile --}}
+                        <a href="{{ $program['link'] }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">{{ __('db.study_programs.programs.' . $program['key']) }}</a>
                     @endforeach
                 </div>
             </div>
@@ -159,20 +163,15 @@
                     <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div x-show="open"
-                     x-transition:enter="transition-all ease-out duration-300"
-                     x-transition:enter-start="opacity-0 max-h-0"
-                     x-transition:enter-end="opacity-100 max-h-screen"
-                     x-transition:leave="transition-all ease-in duration-200"
-                     x-transition:leave-start="opacity-100 max-h-screen"
-                     x-transition:leave-end="opacity-0 max-h-0"
+                     x-transition
                      class="pl-4 mt-2 space-y-1">
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.thesis_defense_schedule') }}</a>
+                    <a href="https://pps.ar-raniry.ac.id/daftar-sidang/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.thesis_defense_schedule') }}</a>
                 </div>
             </div>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.service') }}</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.research') }}</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.quality') }}</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.news') }}</a>
+            <a href="https://pps.ar-raniry.ac.id/kpm-singkil" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.service') }}</a>
+            <a href="https://pps.ar-raniry.ac.id/penelitian/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.research') }}</a>
+            <a href="https://pps.ar-raniry.ac.id/gugus-penjaminan-mutu/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.quality') }}</a>
+            <a href="https://pps.ar-raniry.ac.id/category/akademik/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ __('db.navbar.news') }}</a>
         </div>
     </div>
 </nav>
