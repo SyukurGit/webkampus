@@ -32,6 +32,8 @@
 
 
     <x-alumni-testimonials/>
+
+    <x-leadership-team/>
     
    {{-- footer --}}
     <x-footer/>

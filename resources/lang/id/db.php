@@ -11,6 +11,48 @@ return [
     // Bagian Umum & Header
     // =======================
    // resources/lang/en/db.php
+
+
+
+
+
+
+
+   // resources/lang/id/db.php
+// resources/lang/id/db.php
+'leadership' => [
+    'section_title' => 'Pimpinan Kami',
+    'leaders' => [
+        [
+            'name' => 'Prof. Eka Srimulyani, MA., Ph.D',
+            'position' => 'Direktur Pascasarjana',
+            'image' => 'direktur.png',
+            'socials' => [ // Ditambahkan
+                ['type' => 'instagram', 'link' => '#'],
+            ]
+        ],
+        [
+            'name' => 'Prof. Dr. T. Zulfikar, S.Ag., M.Ed',
+            'position' => 'Wakil Direktur Pascasarjana',
+            'image' => 'wakil-direktur.png',
+            'socials' => [ // Ditambahkan
+                ['type' => 'instagram', 'link' => '#'],
+            ]
+        ],
+        [
+            'name' => 'Salluddin, SE',
+            'position' => 'Kasubbag TU Pascasarjana',
+            'image' => 'kasubbag.png',
+            'socials' => [ // Ditambahkan
+                ['type' => 'whatsapp', 'link' => '#'],
+            ]
+        ],
+    ]
+],
+
+
+
+
 'alumni_testimonials' => [
     'section_title' => 'Alumni Words',
     'testimonials' => [

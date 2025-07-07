@@ -12,11 +12,50 @@ return [
     // =======================
     'title'           => 'Dashboard',
     'navbar_brand'    => 'LOGOPASCASARJANA',
-    'login_button'    => 'Login',
-    'welcome_heading' => 'Welcome to Postgraduate UIN',
-    'welcome_p'       => 'Still in development.',
 
-    // resources/lang/id/db.php
+
+
+
+
+
+
+
+
+    
+// resources/lang/en/db.php
+'leadership' => [
+    'section_title' => 'Our Leadership',
+    'leaders' => [
+        [
+            'name' => 'Prof. Eka Srimulyani, MA., Ph.D',
+            'position' => 'Director of Postgraduate Program',
+            'image' => 'direktur.png',
+            'socials' => [
+                ['type' => 'instagram', 'link' => '#'],
+            ]
+        ],
+        [
+            'name' => 'Prof. Dr. T. Zulfikar, S.Ag., M.Ed',
+            'position' => 'Vice Director of Postgraduate Program',
+            'image' => 'wakil-direktur.png',
+            'socials' => [
+                ['type' => 'instagram', 'link' => '#'],
+            ]
+        ],
+        [
+            'name' => 'Salluddin, SE',
+            'position' => 'Head of Administration',
+            'image' => 'kasubbag.png',
+            'socials' => [
+                ['type' => 'whatsapp', 'link' => '#'],
+            ]
+        ],
+    ]
+],
+
+
+   
+
 'alumni_testimonials' => [
     'section_title' => 'Kata Alumni',
     'testimonials' => [
