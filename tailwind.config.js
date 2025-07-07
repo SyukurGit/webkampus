@@ -14,6 +14,7 @@ export default {
         customwhite: '#FCFEFE',
         customblue: '#239B9E',
         primary: '#135DFB',
+        customred: '#CC191A',
       },
     },
   },

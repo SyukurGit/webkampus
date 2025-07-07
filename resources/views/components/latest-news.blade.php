@@ -9,7 +9,8 @@
         <div class="flex justify-between items-center mb-8">
             {{-- Judul Seksi --}}
             <div class="flex items-center">
-                <span class="w-10 h-1 bg-blue-500 rounded-full"></span>
+                {{-- Garis diubah menjadi merah --}}
+                <span class="w-10 h-1 bg-red-600 rounded-full"></span>
                 <h2 class="ml-4 text-3xl font-bold text-gray-800">Berita Terbaru</h2>
             </div>
             {{-- Tombol "Lihat Semua" dipindahkan ke sini --}}
@@ -43,7 +44,8 @@
                             <a href="{{ route('news.show', $news) }}" class="flex items-center gap-4 group no-underline">
                                 <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title_id }}" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
                                 <div>
-                                    <h4 class="font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
+                                    {{-- Warna hover diubah menjadi merah --}}
+                                    <h4 class="font-bold text-gray-800 group-hover:text-red-600 transition-colors">
                                         @if(app()->getLocale() == 'id') {{ $news->title_id }} @else {{ $news->title_en }} @endif
                                     </h4>
                                     <p class="text-sm text-gray-500 mt-1">Admin | {{ $news->created_at->format('d/m/Y') }}</p>

@@ -21,8 +21,8 @@
 
 <style>
     .program-card {
-        /* background: linear-gradient(135deg, rgb(185, 28, 28) 0%, #DC2626 100%); */
-        background: linear-gradient(135deg, #35455a 0%, #1F2937 100%); 
+        background: linear-gradient(135deg, #CA1819 0%, #DC2626 100%);
+        /* background: linear-gradient(135deg, #35455a 0%, #1F2937 100%);  */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .program-card:hover {
@@ -44,7 +44,7 @@
         {{-- Bagian Studi Doktor --}}
         <div class="mb-16">
             <div class="flex items-center mb-8">
-                <span class="w-12 h-1 bg-blue-600 rounded-full"></span>
+                <span class="w-12 h-1 bg-red-600 rounded-full"></span>
                 <h3 class="ml-4 text-2xl md:text-3xl font-medium text-gray-800">
                     {{ __('db.study_programs.doctor_title') }}
                 </h3>
@@ -68,7 +68,7 @@
         {{-- Bagian Studi Magister --}}
         <div>
             <div class="flex items-center mb-8">
-                <span class="w-12 h-1 bg-blue-600 rounded-full"></span>
+                <span class="w-12 h-1 bg-red-600 rounded-full"></span>
                 <h3 class="ml-4 text-2xl md:text-3xl font-medium text-gray-800">
                     {{ __('db.study_programs.master_title') }}
                 </h3>
