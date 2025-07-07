@@ -16,6 +16,28 @@ return [
     'welcome_heading' => 'Welcome to Postgraduate UIN',
     'welcome_p'       => 'Still in development.',
 
+    // resources/lang/id/db.php
+'alumni_testimonials' => [
+    'section_title' => 'Kata Alumni',
+    'testimonials' => [
+        [
+            'quote' => 'Kuliah Di Pascasarjana UIN Ar-Raniry Banda Aceh itu Menyenangkan.',
+            'name' => 'Alumni Program S2 KPI (Nurul Aflah S.I.Kom., M.Sos & Arief Fadillah, S.I.Kom,.M.Sos)',
+            'program' => 'Pascasarjana UIN Ar-Raniry',
+        ],
+        [
+            'quote' => 'Alumni Program Doktor Lulus dengan IPK Terbaik Maksimal 4.00.',
+            'name' => 'Alumni Program Doktor (DR. SAKDIAH, M.Ag)',
+            'program' => 'Pascasarjana UIN Ar-Raniry',
+        ],
+        [
+            'quote' => 'Lingkungan belajar yang mendukung dan dosen yang ahli di bidangnya membuat pengalaman saya tak terlupakan.',
+            'name' => 'Alumni Lainnya',
+            'program' => 'Pascasarjana UIN Ar-Raniry',
+        ],
+    ]
+],
+
     // resources/lang/en/db.php
 'navbar' => [
     'home' => 'Home',

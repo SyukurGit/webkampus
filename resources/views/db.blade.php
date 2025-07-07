@@ -29,6 +29,9 @@
     <x-latest-news :newsItems="$newsItems" />
 
     <x-facilities-grid/>
+
+
+    <x-alumni-testimonials/>
     
    {{-- footer --}}
     <x-footer/>

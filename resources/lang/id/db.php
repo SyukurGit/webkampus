@@ -10,7 +10,27 @@ return [
     // =======================
     // Bagian Umum & Header
     // =======================
-   
+   // resources/lang/en/db.php
+'alumni_testimonials' => [
+    'section_title' => 'Alumni Words',
+    'testimonials' => [
+        [
+            'quote' => 'Studying at the UIN Ar-Raniry Banda Aceh Postgraduate Program is enjoyable.',
+            'name' => 'Alumni of S2 KPI Program (Nurul Aflah S.I.Kom., M.Sos & Arief Fadillah, S.I.Kom,.M.Sos)',
+            'program' => 'UIN Ar-Raniry Postgraduate',
+        ],
+        [
+            'quote' => 'Doctoral Program Alumni Graduated with a Maximum GPA of 4.00.',
+            'name' => 'Doctoral Program Alumni (DR. SAKDIAH, M.Ag)',
+            'program' => 'UIN Ar-Raniry Postgraduate',
+        ],
+        [
+            'quote' => 'The supportive learning environment and expert lecturers made my experience unforgettable.',
+            'name' => 'Another Alumnus',
+            'program' => 'UIN Ar-Raniry Postgraduate',
+        ],
+    ]
+],
 
     'navbar' => [
     'home' => 'Home',
