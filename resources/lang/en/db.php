@@ -43,9 +43,9 @@ return [
             ]
         ],
         [
-            'name' => 'Salluddin, SE',
+            'name' => 'Saifuddin, SE',
             'position' => 'Head of Administration',
-            'image' => 'kasubbag.png',
+            'image' => 'kasubbag.jpg',
             'socials' => [
                 ['type' => 'whatsapp', 'link' => '#'],
             ]
@@ -56,23 +56,24 @@ return [
 
    
 
+
 'alumni_testimonials' => [
-    'section_title' => 'Kata Alumni',
+    'section_title' => 'Alumni Words',
     'testimonials' => [
         [
-            'quote' => 'Kuliah Di Pascasarjana UIN Ar-Raniry Banda Aceh itu Menyenangkan.',
-            'name' => 'Alumni Program S2 KPI (Nurul Aflah S.I.Kom., M.Sos & Arief Fadillah, S.I.Kom,.M.Sos)',
-            'program' => 'Pascasarjana UIN Ar-Raniry',
+            'quote' => 'Studying at the UIN Ar-Raniry Banda Aceh Postgraduate Program is enjoyable.',
+            'name' => 'Alumni of S2 KPI Program (Nurul Aflah S.I.Kom., M.Sos & Arief Fadillah, S.I.Kom,.M.Sos)',
+            'program' => 'UIN Ar-Raniry Postgraduate',
         ],
         [
-            'quote' => 'Alumni Program Doktor Lulus dengan IPK Terbaik Maksimal 4.00.',
-            'name' => 'Alumni Program Doktor (DR. SAKDIAH, M.Ag)',
-            'program' => 'Pascasarjana UIN Ar-Raniry',
+            'quote' => 'Doctoral Program Alumni Graduated with a Maximum GPA of 4.00.',
+            'name' => 'Doctoral Program Alumni (DR. SAKDIAH, M.Ag)',
+            'program' => 'UIN Ar-Raniry Postgraduate',
         ],
         [
-            'quote' => 'Lingkungan belajar yang mendukung dan dosen yang ahli di bidangnya membuat pengalaman saya tak terlupakan.',
-            'name' => 'Alumni Lainnya',
-            'program' => 'Pascasarjana UIN Ar-Raniry',
+            'quote' => 'The supportive learning environment and expert lecturers made my experience unforgettable.',
+            'name' => 'Another Alumnus',
+            'program' => 'UIN Ar-Raniry Postgraduate',
         ],
     ]
 ],

@@ -7,7 +7,7 @@
     <div class="container mx-auto px-6">
         {{-- Judul Seksi --}}
         <div class="flex items-center mb-12">
-            <span class="w-10 h-1 bg-blue-500 rounded-full"></span>
+            <span class="w-10 h-1 bg-red-600 rounded-full"></span>
             <h2 class="ml-4 text-3xl font-bold text-gray-800">{{ __('db.leadership.section_title') }}</h2>
         </div>
 

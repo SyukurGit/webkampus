@@ -46,9 +46,11 @@
                             <p class="text-gray-600 italic">"{{ $testimonial['quote'] }}"</p>
                         </div>
                         <div class="flex items-center mt-6 pt-6 border-t border-gray-200">
-                            <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-                                {{-- Placeholder untuk foto alumni --}}
-                                <img src="{{ asset('images/logo.png') }}" alt="Alumni" class="w-full h-full object-cover rounded-full">
+                            {{-- =============================================== --}}
+                            {{-- PERBAIKAN ADA DI DIV DI BAWAH INI --}}
+                            {{-- =============================================== --}}
+                            <div class="w-12 h-12 rounded-full flex-shrink-0 mr-4">
+                                <img src="{{ asset('images/logouin .png') }}" alt="Alumni" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <p class="font-bold text-gray-800">{{ $testimonial['name'] }}</p>

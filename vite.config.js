@@ -20,6 +20,7 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
         }),
+        
     ],
 });
 
@@ -38,7 +39,7 @@ export default defineConfig({
 //     server: {
 //         host: '0.0.0.0',
 //         hmr: {
-//             host: '535b-116-206-32-210.ngrok-free.app'
+//             host: '43ae-103-107-187-9.ngrok-free.app'
 //         }
 //     }
 // });
