@@ -7,6 +7,7 @@
     
     {{-- Memuat file CSS dan JS yang sudah dikompilasi oleh Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" href="{{ asset('images/logouin.png') }}" type="image/png">
 </head>
 <body class="bg-gray-100 font-sans">
 

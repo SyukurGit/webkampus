@@ -50,7 +50,7 @@
                             {{-- PERBAIKAN ADA DI DIV DI BAWAH INI --}}
                             {{-- =============================================== --}}
                             <div class="w-12 h-12 rounded-full flex-shrink-0 mr-4">
-                                <img src="{{ asset('images/logouin .png') }}" alt="Alumni" class="w-full h-full object-cover rounded-full">
+                                <img src="{{ asset('images/logouin.png') }}" alt="Alumni" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <p class="font-bold text-gray-800">{{ $testimonial['name'] }}</p>
