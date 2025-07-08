@@ -6,8 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DashboardController;
 
-// --- ROUTE PUBLIK ---
-Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
+// --- ROUTE PUBLIK 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // INI ROUTE YANG HILANG DAN PERLU DITAMBAHKAN KEMBALI
